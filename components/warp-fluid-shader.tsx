@@ -244,6 +244,8 @@ export default function WarpFluidShader() {
     console.log("Shaders compiled and program linked successfully")
 
     function resizeCanvas() {
+      if (!canvas) return;
+      if(!gl) return;
       const rect = canvas.getBoundingClientRect()
       canvas.width = rect.width * window.devicePixelRatio
       canvas.height = rect.height * window.devicePixelRatio

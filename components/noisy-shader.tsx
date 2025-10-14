@@ -166,6 +166,7 @@ export default function NoisyShader({
 
     // Compile shaders
     function compileShader(source: string, type: number): WebGLShader | null {
+      if(!gl) return null
       const shader = gl.createShader(type)
       if (!shader) return null
 

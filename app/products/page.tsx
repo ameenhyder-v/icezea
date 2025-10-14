@@ -71,7 +71,7 @@ export default function ProductsPage() {
       <div className="relative z-10">
         <Header />
 
-        <section className="pt-32 pb-20">
+        {/* <section className="pt-32 pb-20">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
             <div className="relative group max-w-4xl mx-auto">
               <div className="absolute -inset-1 bg-gradient-to-r from-white/40 via-white/20 to-white/40 rounded-[2rem] blur-xl opacity-60 group-hover:opacity-80 transition-opacity duration-500"></div>
@@ -90,9 +90,9 @@ export default function ProductsPage() {
               </div>
             </div>
           </div>
-        </section>
+        </section> */}
 
-        <section className="py-8 sticky top-20 z-40 backdrop-blur-[40px] bg-white/20 border-b border-white/30 shadow-[0_4px_24px_rgba(31,38,135,0.1)]">
+        <section className="py-3 sticky top-20 z-40 backdrop-blur-[40px] bg-white/20 border-b border-white/30 shadow-[0_4px_24px_rgba(31,38,135,0.1)]">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
             <div className="flex flex-wrap justify-center gap-4">
               <button
@@ -113,7 +113,7 @@ export default function ProductsPage() {
                     : "bg-white/60 text-gray-700 hover:bg-white/80 border-white/60"
                 }`}
               >
-                🧁 Kulfis
+                Kulfis
               </button>
               <button
                 onClick={() => setActiveCategory("cups")}
@@ -123,7 +123,7 @@ export default function ProductsPage() {
                     : "bg-white/60 text-gray-700 hover:bg-white/80 border-white/60"
                 }`}
               >
-                🍨 Ice Cream Cups
+                Ice Cream Cups
               </button>
               <button
                 onClick={() => setActiveCategory("popsicles")}
@@ -133,7 +133,7 @@ export default function ProductsPage() {
                     : "bg-white/60 text-gray-700 hover:bg-white/80 border-white/60"
                 }`}
               >
-                🍭 Popsicles
+                Popsicles
               </button>
               <button
                 onClick={() => setActiveCategory("sipup")}
@@ -143,13 +143,13 @@ export default function ProductsPage() {
                     : "bg-white/60 text-gray-700 hover:bg-white/80 border-white/60"
                 }`}
               >
-                🥤 Sip-Up
+                Sip-Up
               </button>
             </div>
           </div>
         </section>
 
-        <section className="py-20">
+        <section className="pt-20 mt-4">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
             <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
               {getFilteredProducts().map((product, index) => (

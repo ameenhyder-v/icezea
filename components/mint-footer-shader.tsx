@@ -47,6 +47,7 @@ export default function MintFooterShader({
     if (!canvas) return
 
     const gl = canvas.getContext("webgl2", { alpha: false, antialias: true })
+
     if (!gl) {
       console.error("WebGL2 not supported for mint footer shader")
       return
@@ -191,7 +192,7 @@ export default function MintFooterShader({
       fragColor = vec4(col, 1.0);
     }`
 
-    function compileShader(type: number, source: string): WebGLShader {
+    function compileShader(gl: WebGL2RenderingContext,type: number, source: string): WebGLShader {
       const shader = gl.createShader(type)!
       gl.shaderSource(shader, source)
       gl.compileShader(shader)
@@ -201,7 +202,7 @@ export default function MintFooterShader({
       return shader
     }
 
-    function createProgram(vertexShader: WebGLShader, fragmentShader: WebGLShader): WebGLProgram {
+    function createProgram(gl: WebGL2RenderingContext,vertexShader: WebGLShader, fragmentShader: WebGLShader): WebGLProgram {
       const program = gl.createProgram()!
       gl.attachShader(program, vertexShader)
       gl.attachShader(program, fragmentShader)
@@ -212,9 +213,9 @@ export default function MintFooterShader({
       return program
     }
 
-    const vertexShader = compileShader(gl.VERTEX_SHADER, vertexShaderSource)
-    const fragmentShader = compileShader(gl.FRAGMENT_SHADER, fragmentShaderSource)
-    const program = createProgram(vertexShader, fragmentShader)
+    const vertexShader = compileShader(gl, gl.VERTEX_SHADER, vertexShaderSource)
+    const fragmentShader = compileShader(gl, gl.FRAGMENT_SHADER, fragmentShaderSource)
+    const program = createProgram(gl, vertexShader, fragmentShader)
     programRef.current = program
 
     const vao = gl.createVertexArray()
@@ -262,6 +263,7 @@ export default function MintFooterShader({
     }
 
     function resize() {
+      if(!canvas || !gl) return
       const dpr = Math.max(1, Math.min(2, window.devicePixelRatio || 1))
       const rect = canvas.getBoundingClientRect()
       const w = Math.max(1, Math.floor(rect.width * dpr))
@@ -303,6 +305,7 @@ export default function MintFooterShader({
       while (colorArray.length < 8 * 3) {
         colorArray.push(0, 0, 0)
       }
+      if(!canvas) return 
 
       glContext.uniform2f(uniformLocations.resolution, canvas.width, canvas.height)
       glContext.uniform1f(uniformLocations.time, currentTime)

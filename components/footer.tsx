@@ -53,7 +53,7 @@ export function Footer() {
             <div className="space-y-3">
               <div className="flex items-start gap-2 text-sm text-gray-700">
                 <MapPin size={16} className="mt-1 flex-shrink-0" />
-                <span>Dubai, United Arab Emirates</span>
+                <span>Ajman, United Arab Emirates</span>
               </div>
               <div className="flex items-center gap-2 text-sm text-gray-700">
                 <Phone size={16} className="flex-shrink-0" />

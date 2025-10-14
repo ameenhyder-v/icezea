@@ -101,8 +101,8 @@ export default function Home() {
                   </div>
                   <div className="relative">
                     <img
-                      src="/premium-ice-cream-collage-with-kulfis-and-popsicle.jpg"
-                      alt="Icezea Products Collage"
+                      src="/icecreamI.jpg"
+                      alt="Products Collage"
                       className="rounded-3xl shadow-2xl border border-white/30"
                     />
                   </div>
@@ -136,7 +136,11 @@ export default function Home() {
                     <div className="group/card backdrop-blur-[40px] bg-gradient-to-br from-white/30 to-white/15 border border-white/50 rounded-[1.5rem] p-8 hover:shadow-[0_12px_40px_rgba(31,38,135,0.2)] transition-all duration-300 hover:-translate-y-2 relative overflow-hidden">
                       <div className="absolute inset-0 bg-gradient-to-br from-white/30 via-transparent to-white/10 opacity-0 group-hover/card:opacity-100 transition-opacity duration-500"></div>
                       <div className="text-center space-y-4">
-                        <div className="text-6xl">🧁</div>
+                        <img 
+                          src="/kulfiImage.jpg" 
+                          alt="Ice Cream Cups" 
+                          className="w-full h-full object-cover"
+                        />
                         <h3 className="text-2xl font-serif font-bold text-gray-800">Kulfis</h3>
                         <p className="text-sm text-gray-700">Malai, Pista, Butterscotch, Mango, Tender Coconut</p>
                         <Link
@@ -151,7 +155,11 @@ export default function Home() {
                     <div className="group/card backdrop-blur-[40px] bg-gradient-to-br from-white/30 to-white/15 border border-white/50 rounded-[1.5rem] p-8 hover:shadow-[0_12px_40px_rgba(31,38,135,0.2)] transition-all duration-300 hover:-translate-y-2 relative overflow-hidden">
                       <div className="absolute inset-0 bg-gradient-to-br from-white/30 via-transparent to-white/10 opacity-0 group-hover/card:opacity-100 transition-opacity duration-500"></div>
                       <div className="text-center space-y-4">
-                        <div className="text-6xl">🍨</div>
+                        <img 
+                          src="/cupIce.jpg" 
+                          alt="Ice Cream Cups" 
+                          className="w-full h-full object-cover"
+                        />
                         <h3 className="text-2xl font-serif font-bold text-gray-800">Ice Cream Cups</h3>
                         <p className="text-sm text-gray-700">Vanilla, Chocolate, Strawberry, Mango & more</p>
                         <Link
@@ -166,7 +174,11 @@ export default function Home() {
                     <div className="group/card backdrop-blur-[40px] bg-gradient-to-br from-white/30 to-white/15 border border-white/50 rounded-[1.5rem] p-8 hover:shadow-[0_12px_40px_rgba(31,38,135,0.2)] transition-all duration-300 hover:-translate-y-2 relative overflow-hidden">
                       <div className="absolute inset-0 bg-gradient-to-br from-white/30 via-transparent to-white/10 opacity-0 group-hover/card:opacity-100 transition-opacity duration-500"></div>
                       <div className="text-center space-y-4">
-                        <div className="text-6xl">🍭</div>
+                        <img 
+                          src="/popsicles.jpg" 
+                          alt="Ice Cream Cups" 
+                          className="w-full h-full object-cover"
+                        />
                         <h3 className="text-2xl font-serif font-bold text-gray-800">Fruit Popsicles</h3>
                         <p className="text-sm text-gray-700">Avocado, Fig & Honey, Pineapple, Jackfruit</p>
                         <Link
@@ -181,7 +193,12 @@ export default function Home() {
                     <div className="group/card backdrop-blur-[40px] bg-gradient-to-br from-white/30 to-white/15 border border-white/50 rounded-[1.5rem] p-8 hover:shadow-[0_12px_40px_rgba(31,38,135,0.2)] transition-all duration-300 hover:-translate-y-2 relative overflow-hidden">
                       <div className="absolute inset-0 bg-gradient-to-br from-white/30 via-transparent to-white/10 opacity-0 group-hover/card:opacity-100 transition-opacity duration-500"></div>
                       <div className="text-center space-y-4">
-                        <div className="text-6xl">🥤</div>
+                        {/* <div className="text-6xl">🥤</div> */}
+                        <img 
+                          src="/sipups.jpg" 
+                          alt="Ice Cream Cups" 
+                          className="w-full h-full object-cover"
+                        />
                         <h3 className="text-2xl font-serif font-bold text-gray-800">Sip-Up</h3>
                         <p className="text-sm text-gray-700">Fruit & milk-based refreshing drinks</p>
                         <Link
@@ -288,101 +305,98 @@ export default function Home() {
           </div>
         </section>
 
-        <section id="contact" className="relative py-20">
+        <section className="py-20" id="contact">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="max-w-2xl mx-auto">
-              <div className="text-center mb-12">
-                <h2 className="text-4xl sm:text-5xl font-serif font-bold text-gray-800 mb-4">Get In Touch</h2>
-                <p className="text-lg text-gray-700">
-                  Want to bring Icezea to your shop or café? Let's scoop up a partnership!
-                </p>
-              </div>
+            <div className="max-w-2xl mx-auto backdrop-blur-[40px] bg-white/20 rounded-[2.5rem] p-12 shadow-[0_8px_32px_rgba(31,38,135,0.15)] border border-white/30 relative overflow-hidden">
+              <div className="absolute inset-0 rounded-[2.5rem] bg-gradient-to-br from-white/50 via-transparent to-white/20" />
+              <div className="absolute inset-0 rounded-[2.5rem] shadow-[inset_0_2px_30px_rgba(255,255,255,0.6)]" />
+              <div className="absolute top-0 left-0 right-0 h-40 bg-gradient-to-b from-white/35 to-transparent rounded-t-[2.5rem] blur-2xl" />
+              <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-white/25 to-transparent blur-xl" />
 
-              <div className="relative group">
-                <div className="absolute -inset-1 bg-gradient-to-r from-white/40 via-white/20 to-white/40 rounded-[2rem] blur-xl opacity-60 group-hover:opacity-80 transition-opacity duration-500"></div>
+              <div className="relative z-10">
+                <div className="text-center mb-12">
+                  <h2 className="text-4xl sm:text-5xl font-serif font-bold text-gray-800 mb-4">
+                    Want to Bring Icezea to Your Shop?
+                  </h2>
+                  <p className="text-lg text-gray-700">Let's scoop up a partnership!</p>
+                </div>
 
-                <form className="relative space-y-6 backdrop-blur-[40px] bg-white/20 p-8 sm:p-12 rounded-[2rem] shadow-[0_8px_32px_rgba(31,38,135,0.15),0_2px_16px_rgba(255,255,255,0.4)_inset] border border-white/30 overflow-hidden">
-                  <div className="absolute inset-0 bg-gradient-to-br from-white/40 via-white/10 to-transparent opacity-60 group-hover:opacity-80 transition-opacity duration-700"></div>
-                  <div className="absolute top-0 left-0 right-0 h-40 bg-gradient-to-b from-white/30 to-transparent blur-2xl"></div>
-                  <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-white/20 to-transparent blur-xl"></div>
-
-                  <div className="relative z-10 space-y-6">
-                    <div className="grid sm:grid-cols-2 gap-6">
-                      <div>
-                        <label htmlFor="name" className="block text-sm font-medium text-gray-800 mb-2">
-                          Name
-                        </label>
-                        <input
-                          type="text"
-                          id="name"
-                          className="w-full px-4 py-3 rounded-xl border border-white/50 bg-white/25 backdrop-blur-md text-gray-800 placeholder:text-gray-500 focus:outline-none focus:ring-2 focus:ring-primary focus:border-white/60"
-                          placeholder="Your name"
-                        />
-                      </div>
-                      <div>
-                        <label htmlFor="business" className="block text-sm font-medium text-gray-800 mb-2">
-                          Business Name
-                        </label>
-                        <input
-                          type="text"
-                          id="business"
-                          className="w-full px-4 py-3 rounded-xl border border-white/50 bg-white/25 backdrop-blur-md text-gray-800 placeholder:text-gray-500 focus:outline-none focus:ring-2 focus:ring-primary focus:border-white/60"
-                          placeholder="Your business"
-                        />
-                      </div>
-                    </div>
-
-                    <div className="grid sm:grid-cols-2 gap-6">
-                      <div>
-                        <label htmlFor="emirate" className="block text-sm font-medium text-gray-800 mb-2">
-                          Emirate
-                        </label>
-                        <select
-                          id="emirate"
-                          className="w-full px-4 py-3 rounded-xl border border-white/50 bg-white/25 backdrop-blur-md text-gray-800 focus:outline-none focus:ring-2 focus:ring-primary focus:border-white/60"
-                        >
-                          <option>Select Emirate</option>
-                          <option>Dubai</option>
-                          <option>Abu Dhabi</option>
-                          <option>Sharjah</option>
-                          <option>Ajman</option>
-                          <option>Umm Al Quwain</option>
-                          <option>Ras Al Khaimah</option>
-                          <option>Fujairah</option>
-                        </select>
-                      </div>
-                      <div>
-                        <label htmlFor="phone" className="block text-sm font-medium text-gray-800 mb-2">
-                          Contact Number
-                        </label>
-                        <input
-                          type="tel"
-                          id="phone"
-                          className="w-full px-4 py-3 rounded-xl border border-white/50 bg-white/25 backdrop-blur-md text-gray-800 placeholder:text-gray-500 focus:outline-none focus:ring-2 focus:ring-primary focus:border-white/60"
-                          placeholder="+971 XX XXX XXXX"
-                        />
-                      </div>
-                    </div>
-
+                <form className="space-y-6">
+                  <div className="grid sm:grid-cols-2 gap-6">
                     <div>
-                      <label htmlFor="message" className="block text-sm font-medium text-gray-800 mb-2">
-                        Message
+                      <label htmlFor="name" className="block text-sm font-medium text-gray-800 mb-2">
+                        Name
                       </label>
-                      <textarea
-                        id="message"
-                        rows={5}
-                        className="w-full px-4 py-3 rounded-xl border border-white/50 bg-white/25 backdrop-blur-md text-gray-800 placeholder:text-gray-500 focus:outline-none focus:ring-2 focus:ring-primary resize-none focus:border-white/60"
-                        placeholder="Tell us about your business..."
+                      <input
+                        type="text"
+                        id="name"
+                        className="w-full px-4 py-3 rounded-xl border border-white/50 bg-white/25 backdrop-blur-md text-gray-800 placeholder:text-gray-500 focus:outline-none focus:ring-2 focus:ring-primary focus:border-white/60"
+                        placeholder="Your name"
                       />
                     </div>
-
-                    <button
-                      type="submit"
-                      className="w-full px-8 py-4 bg-primary text-primary-foreground rounded-full font-semibold text-lg hover:scale-105 transition-transform shadow-lg"
-                    >
-                      Send Message
-                    </button>
+                    <div>
+                      <label htmlFor="business" className="block text-sm font-medium text-gray-800 mb-2">
+                        Business Name
+                      </label>
+                      <input
+                        type="text"
+                        id="business"
+                        className="w-full px-4 py-3 rounded-xl border border-white/50 bg-white/25 backdrop-blur-md text-gray-800 placeholder:text-gray-500 focus:outline-none focus:ring-2 focus:ring-primary focus:border-white/60"
+                        placeholder="Your business"
+                      />
+                    </div>
                   </div>
+
+                  <div className="grid sm:grid-cols-2 gap-6">
+                    <div>
+                      <label htmlFor="emirate" className="block text-sm font-medium text-gray-800 mb-2">
+                        Emirate
+                      </label>
+                      <select
+                        id="emirate"
+                        className="w-full px-4 py-3 rounded-xl border border-white/50 bg-white/25 backdrop-blur-md text-gray-800 focus:outline-none focus:ring-2 focus:ring-primary focus:border-white/60"
+                      >
+                        <option>Select Emirate</option>
+                        <option>Dubai</option>
+                        <option>Abu Dhabi</option>
+                        <option>Sharjah</option>
+                        <option>Ajman</option>
+                        <option>Umm Al Quwain</option>
+                        <option>Ras Al Khaimah</option>
+                        <option>Fujairah</option>
+                      </select>
+                    </div>
+                    <div>
+                      <label htmlFor="phone" className="block text-sm font-medium text-gray-800 mb-2">
+                        Contact Number
+                      </label>
+                      <input
+                        type="tel"
+                        id="phone"
+                        className="w-full px-4 py-3 rounded-xl border border-white/50 bg-white/25 backdrop-blur-md text-gray-800 placeholder:text-gray-500 focus:outline-none focus:ring-2 focus:ring-primary focus:border-white/60"
+                        placeholder="+971 XX XXX XXXX"
+                      />
+                    </div>
+                  </div>
+
+                  <div>
+                    <label htmlFor="message" className="block text-sm font-medium text-gray-800 mb-2">
+                      Message
+                    </label>
+                    <textarea
+                      id="message"
+                      rows={5}
+                      className="w-full px-4 py-3 rounded-xl border border-white/50 bg-white/25 backdrop-blur-md text-gray-800 placeholder:text-gray-500 focus:outline-none focus:ring-2 focus:ring-primary resize-none focus:border-white/60"
+                      placeholder="Tell us about your business..."
+                    />
+                  </div>
+
+                  <button
+                    type="submit"
+                    className="w-full px-8 py-4 bg-primary text-primary-foreground rounded-full font-semibold text-lg hover:scale-105 transition-transform shadow-lg"
+                  >
+                    Send Inquiry
+                  </button>
                 </form>
               </div>
             </div>

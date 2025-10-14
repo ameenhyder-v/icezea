@@ -237,6 +237,7 @@ export default function DarkWarpShader({
 
     // Resize canvas
     function resizeCanvas() {
+      if(!canvas || !gl) return
       const rect = canvas.getBoundingClientRect()
       canvas.width = rect.width * window.devicePixelRatio
       canvas.height = rect.height * window.devicePixelRatio
@@ -257,6 +258,7 @@ export default function DarkWarpShader({
     // Animation loop
     let animationId: number
     function animate(time: number) {
+      if(!gl || !canvas) return
       gl.clearColor(0, 0, 0, 1)
       gl.clear(gl.COLOR_BUFFER_BIT)
 
