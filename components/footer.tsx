@@ -25,7 +25,7 @@ export function Footer() {
           <div className="space-y-4">
             <div className="text-3xl font-serif font-bold text-gray-900">Icezea</div>
             <p className="text-sm text-gray-700">Premium Ice Cream for Everyone</p>
-            <p className="text-xs text-gray-600">Made with ❤️ in UAE</p>
+            {/* <p className="text-xs text-gray-600">Made with ❤️ in UAE</p> */}
           </div>
 
           {/* Quick Links */}
