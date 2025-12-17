@@ -36,7 +36,7 @@ export function Header() {
           <div className="hidden md:block">
             <Link
               href="#contact"
-              className="px-6 py-3 bg-secondary text-secondary-foreground rounded-full font-semibold hover:scale-105 transition-transform"
+              className="px-6 py-3 bg-secondary text-secondary-foreground rounded-full font-semibold hover:scale-105 hover:shadow-lg transition-all duration-300"
             >
               Become a Retailer
             </Link>
@@ -85,7 +85,7 @@ export function Header() {
             </Link>
             <Link
               href="#contact"
-              className="block px-6 py-3 bg-secondary text-secondary-foreground rounded-full font-semibold text-center"
+              className="block px-6 py-3 bg-secondary text-secondary-foreground rounded-full font-semibold text-center hover:shadow-lg transition-all duration-300"
               onClick={() => setIsMenuOpen(false)}
             >
               Become a Retailer

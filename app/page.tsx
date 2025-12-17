@@ -48,13 +48,13 @@ export default function Home() {
                   <div className="flex flex-col sm:flex-row gap-4 justify-center items-center pt-4">
                     <Link
                       href="/products"
-                      className="px-8 py-4 bg-primary text-primary-foreground rounded-full font-semibold text-lg hover:scale-105 transition-transform shadow-lg"
+                      className="px-8 py-4 bg-primary text-primary-foreground rounded-full font-semibold text-lg hover:scale-105 hover:shadow-xl transition-all duration-300 shadow-lg"
                     >
                       Explore Our Flavors
                     </Link>
                     <Link
                       href="#about"
-                      className="px-8 py-4 bg-white/70 backdrop-blur-sm text-gray-800 border-2 border-white/50 rounded-full font-semibold text-lg hover:scale-105 transition-transform"
+                      className="px-8 py-4 bg-white/70 backdrop-blur-sm text-gray-800 border-2 border-white/50 rounded-full font-semibold text-lg hover:scale-105 hover:bg-white/90 hover:shadow-lg transition-all duration-300"
                     >
                       Learn More
                     </Link>
@@ -132,78 +132,70 @@ export default function Home() {
                     </p>
                   </div>
 
-                  <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-                    <div className="group/card backdrop-blur-[40px] bg-gradient-to-br from-white/30 to-white/15 border border-white/50 rounded-[1.5rem] p-8 hover:shadow-[0_12px_40px_rgba(31,38,135,0.2)] transition-all duration-300 hover:-translate-y-2 relative overflow-hidden">
-                      <div className="absolute inset-0 bg-gradient-to-br from-white/30 via-transparent to-white/10 opacity-0 group-hover/card:opacity-100 transition-opacity duration-500"></div>
-                      <div className="text-center space-y-4">
-                        <img 
-                          src="/kulfiImage.jpg" 
-                          alt="Ice Cream Cups" 
-                          className="w-full h-full object-cover"
-                        />
-                        <h3 className="text-2xl font-serif font-bold text-gray-800">Kulfis</h3>
-                        <p className="text-sm text-gray-700">Malai, Pista, Butterscotch, Mango, Tender Coconut</p>
+                  <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <div className="group/card backdrop-blur-[40px] bg-gradient-to-br from-white/30 to-white/15 border border-white/50 rounded-[1.5rem] p-8 hover:shadow-[0_16px_48px_rgba(31,38,135,0.25)] transition-all duration-500 hover:-translate-y-3 relative overflow-hidden">
+                      <div className="absolute inset-0 bg-gradient-to-br from-white/40 via-transparent to-white/15 opacity-0 group-hover/card:opacity-100 transition-opacity duration-500"></div>
+                      <div className="absolute top-0 left-0 right-0 h-32 bg-gradient-to-b from-white/30 to-transparent blur-xl opacity-0 group-hover/card:opacity-100 transition-opacity duration-500"></div>
+                      <div className="text-center space-y-5">
+                        <div className="relative overflow-hidden rounded-2xl aspect-square mb-2">
+                          <img 
+                            src="/kulfiImage.jpg" 
+                            alt="Kulfis" 
+                            className="w-full h-full object-cover transition-transform duration-700 group-hover/card:scale-110"
+                          />
+                          <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover/card:opacity-100 transition-opacity duration-500"></div>
+                        </div>
+                        <h3 className="text-2xl font-serif font-bold text-gray-800 group-hover/card:text-primary transition-colors duration-300">Kulfis</h3>
+                        <p className="text-sm text-gray-700 leading-relaxed">Malai, Pista, Butterscotch, Mango, Tender Coconut</p>
                         <Link
                           href="/products?category=kulfis"
-                          className="inline-block mt-4 px-6 py-2 bg-primary text-primary-foreground rounded-full font-semibold hover:scale-105 transition-transform"
+                          className="inline-block mt-4 px-6 py-2.5 bg-primary text-primary-foreground rounded-full font-semibold hover:scale-105 hover:shadow-lg transition-all duration-300"
                         >
                           See More
                         </Link>
                       </div>
                     </div>
 
-                    <div className="group/card backdrop-blur-[40px] bg-gradient-to-br from-white/30 to-white/15 border border-white/50 rounded-[1.5rem] p-8 hover:shadow-[0_12px_40px_rgba(31,38,135,0.2)] transition-all duration-300 hover:-translate-y-2 relative overflow-hidden">
-                      <div className="absolute inset-0 bg-gradient-to-br from-white/30 via-transparent to-white/10 opacity-0 group-hover/card:opacity-100 transition-opacity duration-500"></div>
-                      <div className="text-center space-y-4">
-                        <img 
-                          src="/cupIce.jpg" 
-                          alt="Ice Cream Cups" 
-                          className="w-full h-full object-cover"
-                        />
-                        <h3 className="text-2xl font-serif font-bold text-gray-800">Ice Cream Cups</h3>
-                        <p className="text-sm text-gray-700">Vanilla, Chocolate, Strawberry, Mango & more</p>
-                        <Link
-                          href="/products?category=cups"
-                          className="inline-block mt-4 px-6 py-2 bg-accent text-accent-foreground rounded-full font-semibold hover:scale-105 transition-transform"
-                        >
-                          See More
-                        </Link>
-                      </div>
-                    </div>
-
-                    <div className="group/card backdrop-blur-[40px] bg-gradient-to-br from-white/30 to-white/15 border border-white/50 rounded-[1.5rem] p-8 hover:shadow-[0_12px_40px_rgba(31,38,135,0.2)] transition-all duration-300 hover:-translate-y-2 relative overflow-hidden">
-                      <div className="absolute inset-0 bg-gradient-to-br from-white/30 via-transparent to-white/10 opacity-0 group-hover/card:opacity-100 transition-opacity duration-500"></div>
-                      <div className="text-center space-y-4">
-                        <img 
-                          src="/popsicles.jpg" 
-                          alt="Ice Cream Cups" 
-                          className="w-full h-full object-cover"
-                        />
-                        <h3 className="text-2xl font-serif font-bold text-gray-800">Fruit Popsicles</h3>
-                        <p className="text-sm text-gray-700">Avocado, Fig & Honey, Pineapple, Jackfruit</p>
+                    <div className="group/card backdrop-blur-[40px] bg-gradient-to-br from-white/30 to-white/15 border border-white/50 rounded-[1.5rem] p-8 hover:shadow-[0_16px_48px_rgba(31,38,135,0.25)] transition-all duration-500 hover:-translate-y-3 relative overflow-hidden">
+                      <div className="absolute inset-0 bg-gradient-to-br from-white/40 via-transparent to-white/15 opacity-0 group-hover/card:opacity-100 transition-opacity duration-500"></div>
+                      <div className="absolute top-0 left-0 right-0 h-32 bg-gradient-to-b from-white/30 to-transparent blur-xl opacity-0 group-hover/card:opacity-100 transition-opacity duration-500"></div>
+                      <div className="text-center space-y-5">
+                        <div className="relative overflow-hidden rounded-2xl aspect-square mb-2">
+                          <img 
+                            src="/popsicles.jpg" 
+                            alt="Fruit Popsicles" 
+                            className="w-full h-full object-cover transition-transform duration-700 group-hover/card:scale-110"
+                          />
+                          <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover/card:opacity-100 transition-opacity duration-500"></div>
+                        </div>
+                        <h3 className="text-2xl font-serif font-bold text-gray-800 group-hover/card:text-secondary transition-colors duration-300">Fruit Popsicles</h3>
+                        <p className="text-sm text-gray-700 leading-relaxed">Avocado, Fig & Honey, Pineapple, Jackfruit</p>
                         <Link
                           href="/products?category=popsicles"
-                          className="inline-block mt-4 px-6 py-2 bg-secondary text-secondary-foreground rounded-full font-semibold hover:scale-105 transition-transform"
+                          className="inline-block mt-4 px-6 py-2.5 bg-secondary text-secondary-foreground rounded-full font-semibold hover:scale-105 hover:shadow-lg transition-all duration-300"
                         >
                           See More
                         </Link>
                       </div>
                     </div>
 
-                    <div className="group/card backdrop-blur-[40px] bg-gradient-to-br from-white/30 to-white/15 border border-white/50 rounded-[1.5rem] p-8 hover:shadow-[0_12px_40px_rgba(31,38,135,0.2)] transition-all duration-300 hover:-translate-y-2 relative overflow-hidden">
-                      <div className="absolute inset-0 bg-gradient-to-br from-white/30 via-transparent to-white/10 opacity-0 group-hover/card:opacity-100 transition-opacity duration-500"></div>
-                      <div className="text-center space-y-4">
-                        {/* <div className="text-6xl">🥤</div> */}
-                        <img 
-                          src="/sipups.jpg" 
-                          alt="Ice Cream Cups" 
-                          className="w-full h-full object-cover"
-                        />
-                        <h3 className="text-2xl font-serif font-bold text-gray-800">Sip-Up</h3>
-                        <p className="text-sm text-gray-700">Fruit & milk-based refreshing drinks</p>
+                    <div className="group/card backdrop-blur-[40px] bg-gradient-to-br from-white/30 to-white/15 border border-white/50 rounded-[1.5rem] p-8 hover:shadow-[0_16px_48px_rgba(31,38,135,0.25)] transition-all duration-500 hover:-translate-y-3 relative overflow-hidden">
+                      <div className="absolute inset-0 bg-gradient-to-br from-white/40 via-transparent to-white/15 opacity-0 group-hover/card:opacity-100 transition-opacity duration-500"></div>
+                      <div className="absolute top-0 left-0 right-0 h-32 bg-gradient-to-b from-white/30 to-transparent blur-xl opacity-0 group-hover/card:opacity-100 transition-opacity duration-500"></div>
+                      <div className="text-center space-y-5">
+                        <div className="relative overflow-hidden rounded-2xl aspect-square mb-2">
+                          <img 
+                            src="/sipups.jpg" 
+                            alt="Sip-Up Drinks" 
+                            className="w-full h-full object-cover transition-transform duration-700 group-hover/card:scale-110"
+                          />
+                          <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover/card:opacity-100 transition-opacity duration-500"></div>
+                        </div>
+                        <h3 className="text-2xl font-serif font-bold text-gray-800 group-hover/card:text-chart-4 transition-colors duration-300">Sip-Up</h3>
+                        <p className="text-sm text-gray-700 leading-relaxed">Fruit & milk-based refreshing drinks</p>
                         <Link
                           href="/products?category=sipup"
-                          className="inline-block mt-4 px-6 py-2 bg-chart-4 text-background rounded-full font-semibold hover:scale-105 transition-transform"
+                          className="inline-block mt-4 px-6 py-2.5 bg-chart-4 text-background rounded-full font-semibold hover:scale-105 hover:shadow-lg transition-all duration-300"
                         >
                           See More
                         </Link>
@@ -226,51 +218,51 @@ export default function Home() {
             </div>
 
             <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
-              <div className="group backdrop-blur-[40px] bg-white/20 rounded-[1.5rem] p-8 border border-white/30 shadow-[0_8px_32px_rgba(31,38,135,0.12)] hover:shadow-[0_12px_48px_rgba(31,38,135,0.18)] transition-all duration-300 hover:-translate-y-2 relative overflow-hidden">
+              <div className="group backdrop-blur-[40px] bg-white/20 rounded-[1.5rem] p-8 border border-white/30 shadow-[0_8px_32px_rgba(31,38,135,0.12)] hover:shadow-[0_16px_56px_rgba(31,38,135,0.22)] transition-all duration-500 hover:-translate-y-3 relative overflow-hidden">
                 <div className="absolute inset-0 rounded-[1.5rem] bg-gradient-to-br from-white/40 via-transparent to-white/15 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                <div className="absolute top-0 left-0 right-0 h-24 bg-gradient-to-b from-white/25 to-transparent blur-xl"></div>
+                <div className="absolute top-0 left-0 right-0 h-24 bg-gradient-to-b from-white/25 to-transparent blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                 <div className="relative z-10 text-center space-y-4">
-                  <div className="w-16 h-16 mx-auto bg-pastel-green/60 backdrop-blur-sm rounded-full flex items-center justify-center shadow-lg">
-                    <Leaf className="text-gray-800" size={32} />
+                  <div className="w-16 h-16 mx-auto bg-pastel-green/60 backdrop-blur-sm rounded-full flex items-center justify-center shadow-lg group-hover:scale-110 group-hover:bg-pastel-green/80 transition-all duration-300">
+                    <Leaf className="text-gray-800 group-hover:text-primary transition-colors duration-300" size={32} />
                   </div>
-                  <h3 className="text-xl font-semibold text-gray-800">Real Fruit Purees</h3>
-                  <p className="text-gray-700 text-sm">Made with authentic fruit purees for natural flavor</p>
+                  <h3 className="text-xl font-semibold text-gray-800 group-hover:text-primary transition-colors duration-300">Real Fruit Purees</h3>
+                  <p className="text-gray-700 text-sm leading-relaxed">Made with authentic fruit purees for natural flavor</p>
                 </div>
               </div>
 
-              <div className="group backdrop-blur-[40px] bg-white/20 rounded-[1.5rem] p-8 border border-white/30 shadow-[0_8px_32px_rgba(31,38,135,0.12)] hover:shadow-[0_12px_48px_rgba(31,38,135,0.18)] transition-all duration-300 hover:-translate-y-2 relative overflow-hidden">
+              <div className="group backdrop-blur-[40px] bg-white/20 rounded-[1.5rem] p-8 border border-white/30 shadow-[0_8px_32px_rgba(31,38,135,0.12)] hover:shadow-[0_16px_56px_rgba(31,38,135,0.22)] transition-all duration-500 hover:-translate-y-3 relative overflow-hidden">
                 <div className="absolute inset-0 rounded-[1.5rem] bg-gradient-to-br from-white/40 via-transparent to-white/15 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                <div className="absolute top-0 left-0 right-0 h-24 bg-gradient-to-b from-white/25 to-transparent blur-xl"></div>
+                <div className="absolute top-0 left-0 right-0 h-24 bg-gradient-to-b from-white/25 to-transparent blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                 <div className="relative z-10 text-center space-y-4">
-                  <div className="w-16 h-16 mx-auto bg-pastel-green/60 backdrop-blur-sm rounded-full flex items-center justify-center shadow-lg">
-                    <Milk className="text-gray-800" size={32} />
+                  <div className="w-16 h-16 mx-auto bg-pastel-green/60 backdrop-blur-sm rounded-full flex items-center justify-center shadow-lg group-hover:scale-110 group-hover:bg-pastel-green/80 transition-all duration-300">
+                    <Milk className="text-gray-800 group-hover:text-primary transition-colors duration-300" size={32} />
                   </div>
-                  <h3 className="text-xl font-semibold text-gray-800">Pure Milk & Ingredients</h3>
-                  <p className="text-gray-700 text-sm">Only the finest quality milk and natural ingredients</p>
+                  <h3 className="text-xl font-semibold text-gray-800 group-hover:text-primary transition-colors duration-300">Pure Milk & Ingredients</h3>
+                  <p className="text-gray-700 text-sm leading-relaxed">Only the finest quality milk and natural ingredients</p>
                 </div>
               </div>
 
-              <div className="group backdrop-blur-[40px] bg-white/20 rounded-[1.5rem] p-8 border border-white/30 shadow-[0_8px_32px_rgba(31,38,135,0.12)] hover:shadow-[0_12px_48px_rgba(31,38,135,0.18)] transition-all duration-300 hover:-translate-y-2 relative overflow-hidden">
+              <div className="group backdrop-blur-[40px] bg-white/20 rounded-[1.5rem] p-8 border border-white/30 shadow-[0_8px_32px_rgba(31,38,135,0.12)] hover:shadow-[0_16px_56px_rgba(31,38,135,0.22)] transition-all duration-500 hover:-translate-y-3 relative overflow-hidden">
                 <div className="absolute inset-0 rounded-[1.5rem] bg-gradient-to-br from-white/40 via-transparent to-white/15 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                <div className="absolute top-0 left-0 right-0 h-24 bg-gradient-to-b from-white/25 to-transparent blur-xl"></div>
+                <div className="absolute top-0 left-0 right-0 h-24 bg-gradient-to-b from-white/25 to-transparent blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                 <div className="relative z-10 text-center space-y-4">
-                  <div className="w-16 h-16 mx-auto bg-pastel-green/60 backdrop-blur-sm rounded-full flex items-center justify-center shadow-lg">
-                    <ChefHat className="text-gray-800" size={32} />
+                  <div className="w-16 h-16 mx-auto bg-pastel-green/60 backdrop-blur-sm rounded-full flex items-center justify-center shadow-lg group-hover:scale-110 group-hover:bg-pastel-green/80 transition-all duration-300">
+                    <ChefHat className="text-gray-800 group-hover:text-primary transition-colors duration-300" size={32} />
                   </div>
-                  <h3 className="text-xl font-semibold text-gray-800">Handcrafted Recipes</h3>
-                  <p className="text-gray-700 text-sm">Traditional methods meet modern innovation</p>
+                  <h3 className="text-xl font-semibold text-gray-800 group-hover:text-primary transition-colors duration-300">Handcrafted Recipes</h3>
+                  <p className="text-gray-700 text-sm leading-relaxed">Traditional methods meet modern innovation</p>
                 </div>
               </div>
 
-              <div className="group backdrop-blur-[40px] bg-white/20 rounded-[1.5rem] p-8 border border-white/30 shadow-[0_8px_32px_rgba(31,38,135,0.12)] hover:shadow-[0_12px_48px_rgba(31,38,135,0.18)] transition-all duration-300 hover:-translate-y-2 relative overflow-hidden">
+              <div className="group backdrop-blur-[40px] bg-white/20 rounded-[1.5rem] p-8 border border-white/30 shadow-[0_8px_32px_rgba(31,38,135,0.12)] hover:shadow-[0_16px_56px_rgba(31,38,135,0.22)] transition-all duration-500 hover:-translate-y-3 relative overflow-hidden">
                 <div className="absolute inset-0 rounded-[1.5rem] bg-gradient-to-br from-white/40 via-transparent to-white/15 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                <div className="absolute top-0 left-0 right-0 h-24 bg-gradient-to-b from-white/25 to-transparent blur-xl"></div>
+                <div className="absolute top-0 left-0 right-0 h-24 bg-gradient-to-b from-white/25 to-transparent blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                 <div className="relative z-10 text-center space-y-4">
-                  <div className="w-16 h-16 mx-auto bg-pastel-green/60 backdrop-blur-sm rounded-full flex items-center justify-center shadow-lg">
-                    <Heart className="text-gray-800" size={32} />
+                  <div className="w-16 h-16 mx-auto bg-pastel-green/60 backdrop-blur-sm rounded-full flex items-center justify-center shadow-lg group-hover:scale-110 group-hover:bg-pastel-green/80 transition-all duration-300">
+                    <Heart className="text-gray-800 group-hover:text-primary transition-colors duration-300" size={32} />
                   </div>
-                  <h3 className="text-xl font-semibold text-gray-800">Loved Across UAE</h3>
-                  <p className="text-gray-700 text-sm">Trusted by families and retailers nationwide</p>
+                  <h3 className="text-xl font-semibold text-gray-800 group-hover:text-primary transition-colors duration-300">Loved Across UAE</h3>
+                  <p className="text-gray-700 text-sm leading-relaxed">Trusted by families and retailers nationwide</p>
                 </div>
               </div>
             </div>
@@ -295,7 +287,7 @@ export default function Home() {
                   <p className="text-xl text-gray-700 mb-8">In all Emirates</p>
                   <Link
                     href="#contact"
-                    className="inline-block px-8 py-4 bg-gray-800 text-white rounded-full font-semibold text-lg hover:scale-105 transition-transform shadow-lg"
+                    className="inline-block px-8 py-4 bg-gray-800 text-white rounded-full font-semibold text-lg hover:scale-105 hover:shadow-xl transition-all duration-300 shadow-lg"
                   >
                     Become a Retailer
                   </Link>
@@ -393,7 +385,7 @@ export default function Home() {
 
                   <button
                     type="submit"
-                    className="w-full px-8 py-4 bg-primary text-primary-foreground rounded-full font-semibold text-lg hover:scale-105 transition-transform shadow-lg"
+                    className="w-full px-8 py-4 bg-primary text-primary-foreground rounded-full font-semibold text-lg hover:scale-105 hover:shadow-xl transition-all duration-300 shadow-lg"
                   >
                     Send Inquiry
                   </button>

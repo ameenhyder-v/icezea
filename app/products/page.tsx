@@ -5,7 +5,7 @@ import { Footer } from "@/components/footer"
 import { useState } from "react"
 import { Warp } from "@paper-design/shaders-react"
 
-type Category = "all" | "kulfis" | "cups" | "popsicles" | "sipup"
+type Category = "all" | "kulfis" | "popsicles" | "sipup"
 
 const products = {
   kulfis: [
@@ -14,14 +14,6 @@ const products = {
     { name: "Butterscotch Kulfi", description: "Sweet butterscotch with crunchy bits" },
     { name: "Mango Kulfi", description: "Made with real Alphonso mango pulp" },
     { name: "Tender Coconut Kulfi", description: "Fresh coconut pulp in every bite" },
-  ],
-  cups: [
-    { name: "Vanilla Supreme", description: "Classic Madagascar vanilla bean" },
-    { name: "Belgian Chocolate", description: "Rich dark chocolate indulgence" },
-    { name: "Strawberry Delight", description: "Fresh strawberry puree swirls" },
-    { name: "Mango Tango", description: "Tropical mango sensation" },
-    { name: "Mint Chocolate Chip", description: "Refreshing mint with chocolate chunks" },
-    { name: "Cookies & Cream", description: "Crushed cookies in vanilla cream" },
   ],
   popsicles: [
     { name: "Avocado Pop", description: "Creamy avocado with a hint of lime" },
@@ -97,50 +89,40 @@ export default function ProductsPage() {
             <div className="flex flex-wrap justify-center gap-4">
               <button
                 onClick={() => setActiveCategory("all")}
-                className={`px-6 py-3 rounded-full font-semibold transition-all backdrop-blur-md border ${
+                className={`px-6 py-3 rounded-full font-semibold transition-all duration-300 backdrop-blur-md border ${
                   activeCategory === "all"
                     ? "bg-primary text-primary-foreground shadow-lg scale-105 border-primary/30"
-                    : "bg-white/60 text-gray-700 hover:bg-white/80 border-white/60"
+                    : "bg-white/60 text-gray-700 hover:bg-white/80 hover:scale-105 border-white/60"
                 }`}
               >
                 All Products
               </button>
               <button
                 onClick={() => setActiveCategory("kulfis")}
-                className={`px-6 py-3 rounded-full font-semibold transition-all backdrop-blur-md border ${
+                className={`px-6 py-3 rounded-full font-semibold transition-all duration-300 backdrop-blur-md border ${
                   activeCategory === "kulfis"
                     ? "bg-primary text-primary-foreground shadow-lg scale-105 border-primary/30"
-                    : "bg-white/60 text-gray-700 hover:bg-white/80 border-white/60"
+                    : "bg-white/60 text-gray-700 hover:bg-white/80 hover:scale-105 border-white/60"
                 }`}
               >
                 Kulfis
               </button>
               <button
-                onClick={() => setActiveCategory("cups")}
-                className={`px-6 py-3 rounded-full font-semibold transition-all backdrop-blur-md border ${
-                  activeCategory === "cups"
-                    ? "bg-accent text-accent-foreground shadow-lg scale-105 border-accent/30"
-                    : "bg-white/60 text-gray-700 hover:bg-white/80 border-white/60"
-                }`}
-              >
-                Ice Cream Cups
-              </button>
-              <button
                 onClick={() => setActiveCategory("popsicles")}
-                className={`px-6 py-3 rounded-full font-semibold transition-all backdrop-blur-md border ${
+                className={`px-6 py-3 rounded-full font-semibold transition-all duration-300 backdrop-blur-md border ${
                   activeCategory === "popsicles"
                     ? "bg-secondary text-secondary-foreground shadow-lg scale-105 border-secondary/30"
-                    : "bg-white/60 text-gray-700 hover:bg-white/80 border-white/60"
+                    : "bg-white/60 text-gray-700 hover:bg-white/80 hover:scale-105 border-white/60"
                 }`}
               >
                 Popsicles
               </button>
               <button
                 onClick={() => setActiveCategory("sipup")}
-                className={`px-6 py-3 rounded-full font-semibold transition-all backdrop-blur-md border ${
+                className={`px-6 py-3 rounded-full font-semibold transition-all duration-300 backdrop-blur-md border ${
                   activeCategory === "sipup"
                     ? "bg-chart-4 text-background shadow-lg scale-105 border-chart-4/30"
-                    : "bg-white/60 text-gray-700 hover:bg-white/80 border-white/60"
+                    : "bg-white/60 text-gray-700 hover:bg-white/80 hover:scale-105 border-white/60"
                 }`}
               >
                 Sip-Up
@@ -155,22 +137,23 @@ export default function ProductsPage() {
               {getFilteredProducts().map((product, index) => (
                 <div
                   key={index}
-                  className="group relative backdrop-blur-[40px] bg-white/20 rounded-[1.5rem] p-8 shadow-[0_8px_32px_rgba(31,38,135,0.12)] hover:shadow-[0_20px_60px_rgba(31,38,135,0.18)] transition-all duration-500 hover:-translate-y-3 border border-white/30 overflow-hidden"
+                  className="group relative backdrop-blur-[40px] bg-white/20 rounded-[1.5rem] p-8 shadow-[0_8px_32px_rgba(31,38,135,0.12)] hover:shadow-[0_24px_64px_rgba(31,38,135,0.22)] transition-all duration-500 hover:-translate-y-4 border border-white/30 overflow-hidden"
                 >
                   <div className="absolute inset-0 rounded-[1.5rem] bg-gradient-to-br from-white/50 via-transparent to-white/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                   <div className="absolute inset-0 rounded-[1.5rem] shadow-[inset_0_2px_20px_rgba(255,255,255,0.5)]" />
-                  <div className="absolute top-0 left-0 right-0 h-32 bg-gradient-to-b from-white/30 to-transparent blur-xl"></div>
+                  <div className="absolute top-0 left-0 right-0 h-32 bg-gradient-to-b from-white/30 to-transparent blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
 
                   <div className="relative z-10">
-                    <div className="aspect-square mb-6 rounded-2xl overflow-hidden bg-white/30 backdrop-blur-sm border border-white/40">
+                    <div className="aspect-square mb-6 rounded-2xl overflow-hidden bg-white/30 backdrop-blur-sm border border-white/40 shadow-lg group-hover:shadow-xl transition-shadow duration-500">
                       <img
                         src={`/.jpg?height=300&width=300&query=${product.name} ice cream`}
                         alt={product.name}
-                        className="w-full h-full object-cover"
+                        className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                       />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                     </div>
-                    <h3 className="text-2xl font-serif font-bold text-gray-800 mb-2">{product.name}</h3>
-                    <p className="text-gray-700">{product.description}</p>
+                    <h3 className="text-2xl font-serif font-bold text-gray-800 mb-3 group-hover:text-primary transition-colors duration-300">{product.name}</h3>
+                    <p className="text-gray-700 leading-relaxed">{product.description}</p>
                   </div>
                 </div>
               ))}
