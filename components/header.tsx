@@ -1,98 +1,87 @@
 "use client"
 
 import Link from "next/link"
+import { usePathname } from "next/navigation"
 import { useState } from "react"
-import { Menu, X } from "lucide-react"
+import { Menu, X, ShoppingCart } from "lucide-react"
+import { Logo } from "@/components/logo"
+import { cn } from "@/lib/utils"
+
+const navLinks = [
+  { href: "/products", label: "Shop" },
+  { href: "/#flavours", label: "Flavours" },
+  { href: "/about", label: "Our Story" },
+  { href: "/contact", label: "Contact" },
+]
 
 export function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
+  const pathname = usePathname()
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-md border-b border-border">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-20">
-          {/* Logo */}
-          <Link href="/" className="flex items-center gap-2">
-            <div className="text-3xl font-serif font-bold text-primary">Icezea</div>
-          </Link>
+    <header className="fixed top-0 left-0 right-0 z-50 border-b border-gold/15 bg-cream/95 backdrop-blur-md">
+      <div className="mx-auto flex h-[4.5rem] max-w-7xl items-center justify-between px-4 sm:h-20 sm:px-6 lg:px-8">
+        <Logo />
 
-          {/* Desktop Navigation */}
-          <nav className="hidden md:flex items-center gap-8">
-            <Link href="/" className="text-foreground hover:text-primary transition-colors font-medium">
-              Home
-            </Link>
-            <Link href="/products" className="text-foreground hover:text-primary transition-colors font-medium">
-              Products
-            </Link>
-            <Link href="#about" className="text-foreground hover:text-primary transition-colors font-medium">
-              About
-            </Link>
-            <Link href="#contact" className="text-foreground hover:text-primary transition-colors font-medium">
-              Contact
-            </Link>
-          </nav>
-
-          {/* CTA Button */}
-          <div className="hidden md:block">
+        <nav className="hidden items-center gap-9 md:flex">
+          {navLinks.map((link) => (
             <Link
-              href="#contact"
-              className="px-6 py-3 bg-secondary text-secondary-foreground rounded-full font-semibold hover:scale-105 hover:shadow-lg transition-all duration-300"
+              key={link.label}
+              href={link.href}
+              className={cn(
+                "text-[0.8rem] font-semibold uppercase tracking-[0.14em] transition-colors",
+                pathname === link.href && link.label !== "Flavours"
+                  ? "text-gold-deep"
+                  : "text-cocoa/70 hover:text-gold-deep",
+              )}
             >
-              Become a Retailer
+              {link.label}
             </Link>
-          </div>
+          ))}
+        </nav>
 
-          {/* Mobile Menu Button */}
-          <button
-            onClick={() => setIsMenuOpen(!isMenuOpen)}
-            className="md:hidden p-2 text-foreground"
-            aria-label="Toggle menu"
+        <div className="hidden md:block">
+          <Link
+            href="/products"
+            className="inline-flex items-center gap-2 rounded-full border border-gold/40 bg-card px-5 py-2.5 text-[0.75rem] font-bold uppercase tracking-[0.12em] text-gold-deep shadow-sm transition-all hover:border-gold hover:shadow-md"
           >
-            {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
-          </button>
+            <ShoppingCart size={15} />
+            Cart (0)
+          </Link>
         </div>
 
-        {/* Mobile Navigation */}
-        {isMenuOpen && (
-          <nav className="md:hidden py-4 space-y-4">
-            <Link
-              href="/"
-              className="block text-foreground hover:text-primary transition-colors font-medium"
-              onClick={() => setIsMenuOpen(false)}
-            >
-              Home
-            </Link>
-            <Link
-              href="/products"
-              className="block text-foreground hover:text-primary transition-colors font-medium"
-              onClick={() => setIsMenuOpen(false)}
-            >
-              Products
-            </Link>
-            <Link
-              href="#about"
-              className="block text-foreground hover:text-primary transition-colors font-medium"
-              onClick={() => setIsMenuOpen(false)}
-            >
-              About
-            </Link>
-            <Link
-              href="#contact"
-              className="block text-foreground hover:text-primary transition-colors font-medium"
-              onClick={() => setIsMenuOpen(false)}
-            >
-              Contact
-            </Link>
-            <Link
-              href="#contact"
-              className="block px-6 py-3 bg-secondary text-secondary-foreground rounded-full font-semibold text-center hover:shadow-lg transition-all duration-300"
-              onClick={() => setIsMenuOpen(false)}
-            >
-              Become a Retailer
-            </Link>
-          </nav>
-        )}
+        <button
+          onClick={() => setIsMenuOpen(!isMenuOpen)}
+          className="p-2 text-cocoa md:hidden"
+          aria-label="Toggle menu"
+          aria-expanded={isMenuOpen}
+        >
+          {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
+        </button>
       </div>
+
+      {isMenuOpen && (
+        <nav className="space-y-1 border-t border-gold/15 bg-cream px-4 py-4 md:hidden">
+          {navLinks.map((link) => (
+            <Link
+              key={link.label}
+              href={link.href}
+              className="block rounded-lg px-3 py-2.5 text-sm font-semibold uppercase tracking-[0.12em] text-cocoa/80 hover:bg-cream-deep hover:text-gold-deep"
+              onClick={() => setIsMenuOpen(false)}
+            >
+              {link.label}
+            </Link>
+          ))}
+          <Link
+            href="/products"
+            className="mt-2 flex items-center justify-center gap-2 rounded-full border border-gold/40 bg-card px-3 py-3 text-sm font-bold uppercase tracking-[0.12em] text-gold-deep"
+            onClick={() => setIsMenuOpen(false)}
+          >
+            <ShoppingCart size={16} />
+            Cart (0)
+          </Link>
+        </nav>
+      )}
     </header>
   )
 }

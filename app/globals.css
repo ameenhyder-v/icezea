@@ -1,84 +1,53 @@
 @import "tailwindcss";
 @import "tw-animate-css";
 
-@custom-variant dark (&:is(.dark *));
-
 :root {
-  /* Icezea Ice Cream Theme - Pastel & Premium */
-  --background: oklch(0.98 0.01 320); /* Soft cream white */
-  --foreground: oklch(0.25 0.02 30); /* Dark chocolate brown */
-  --card: oklch(1 0 0); /* Pure white for cards */
-  --card-foreground: oklch(0.25 0.02 30);
-  --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.25 0.02 30);
-  --primary: oklch(0.75 0.15 340); /* Pastel pink */
-  --primary-foreground: oklch(0.98 0.01 320);
-  --secondary: oklch(0.45 0.08 150); /* Pistachio green */
-  --secondary-foreground: oklch(0.98 0.01 320);
-  --muted: oklch(0.95 0.02 320);
-  --muted-foreground: oklch(0.55 0.02 30);
-  --accent: oklch(0.85 0.12 85); /* Creamy yellow */
-  --accent-foreground: oklch(0.25 0.02 30);
-  --destructive: oklch(0.577 0.245 27.325);
-  --destructive-foreground: oklch(0.98 0.01 320);
-  --border: oklch(0.92 0.02 320);
-  --input: oklch(0.92 0.02 320);
-  --ring: oklch(0.75 0.15 340);
-  --chart-1: oklch(0.75 0.15 340); /* Pink */
-  --chart-2: oklch(0.85 0.12 85); /* Yellow */
-  --chart-3: oklch(0.45 0.08 150); /* Green */
-  --chart-4: oklch(0.75 0.12 240); /* Sky blue */
-  --chart-5: oklch(0.35 0.05 30); /* Chocolate */
-  --radius: 1.25rem; /* More rounded for fun feel */
-  --sidebar: oklch(0.98 0.01 320);
-  --sidebar-foreground: oklch(0.25 0.02 30);
-  --sidebar-primary: oklch(0.75 0.15 340);
-  --sidebar-primary-foreground: oklch(0.98 0.01 320);
-  --sidebar-accent: oklch(0.95 0.02 320);
-  --sidebar-accent-foreground: oklch(0.25 0.02 30);
-  --sidebar-border: oklch(0.92 0.02 320);
-  --sidebar-ring: oklch(0.75 0.15 340);
-}
+  /* IceZea — Frozen Indulgence: cream canvas, gold brand, deep cocoa text */
+  --background: oklch(0.972 0.016 85);
+  --foreground: oklch(0.32 0.042 55);
+  --card: oklch(0.99 0.01 90);
+  --card-foreground: oklch(0.32 0.042 55);
+  --popover: oklch(0.99 0.01 90);
+  --popover-foreground: oklch(0.32 0.042 55);
+  --primary: oklch(0.6 0.105 80);
+  --primary-foreground: oklch(0.985 0.01 90);
+  --secondary: oklch(0.38 0.08 145);
+  --secondary-foreground: oklch(0.985 0.01 90);
+  --muted: oklch(0.94 0.02 85);
+  --muted-foreground: oklch(0.5 0.035 60);
+  --accent: oklch(0.85 0.08 85);
+  --accent-foreground: oklch(0.32 0.042 55);
+  --destructive: oklch(0.55 0.22 25);
+  --destructive-foreground: oklch(0.985 0.01 90);
+  --border: oklch(0.89 0.025 85);
+  --input: oklch(0.89 0.025 85);
+  --ring: oklch(0.6 0.105 80);
+  --chart-1: oklch(0.6 0.105 80);
+  --chart-2: oklch(0.62 0.12 130);
+  --chart-3: oklch(0.72 0.13 60);
+  --chart-4: oklch(0.66 0.14 20);
+  --chart-5: oklch(0.32 0.042 55);
+  --radius: 1rem;
 
-.dark {
-  --background: oklch(0.145 0 0);
-  --foreground: oklch(0.985 0 0);
-  --card: oklch(0.145 0 0);
-  --card-foreground: oklch(0.985 0 0);
-  --popover: oklch(0.145 0 0);
-  --popover-foreground: oklch(0.985 0 0);
-  --primary: oklch(0.75 0.15 340);
-  --primary-foreground: oklch(0.98 0.01 320);
-  --secondary: oklch(0.45 0.08 150);
-  --secondary-foreground: oklch(0.98 0.01 320);
-  --muted: oklch(0.269 0 0);
-  --muted-foreground: oklch(0.708 0 0);
-  --accent: oklch(0.85 0.12 85);
-  --accent-foreground: oklch(0.25 0.02 30);
-  --destructive: oklch(0.396 0.141 25.723);
-  --destructive-foreground: oklch(0.637 0.237 25.331);
-  --border: oklch(0.269 0 0);
-  --input: oklch(0.269 0 0);
-  --ring: oklch(0.439 0 0);
-  --chart-1: oklch(0.75 0.15 340);
-  --chart-2: oklch(0.85 0.12 85);
-  --chart-3: oklch(0.45 0.08 150);
-  --chart-4: oklch(0.75 0.12 240);
-  --chart-5: oklch(0.35 0.05 30);
-  --sidebar: oklch(0.205 0 0);
-  --sidebar-foreground: oklch(0.985 0 0);
-  --sidebar-primary: oklch(0.75 0.15 340);
-  --sidebar-primary-foreground: oklch(0.98 0.01 320);
-  --sidebar-accent: oklch(0.269 0 0);
-  --sidebar-accent-foreground: oklch(0.985 0 0);
-  --sidebar-border: oklch(0.269 0 0);
-  --sidebar-ring: oklch(0.439 0 0);
+  /* Brand aliases (used across pages) */
+  --gold: oklch(0.6 0.105 80);
+  --gold-deep: oklch(0.5 0.1 75);
+  --leaf: oklch(0.38 0.08 145);
+  --cocoa: oklch(0.3 0.045 55);
+  --cream: oklch(0.972 0.016 85);
+  --cream-deep: oklch(0.945 0.022 85);
+
+  /* Back-compat tokens for inner pages */
+  --sun: oklch(0.945 0.022 85);
+  --berry: oklch(0.6 0.105 80);
+  --pistachio: oklch(0.62 0.12 130);
+  --mango: oklch(0.78 0.13 75);
 }
 
 @theme inline {
-  --font-sans: var(--font-poppins);
-  --font-serif: var(--font-playfair);
-  --font-mono: var(--font-geist-mono);
+  --font-sans: var(--font-dm-sans);
+  --font-display: var(--font-fraunces);
+  --font-serif: var(--font-fraunces);
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-card: var(--card);
@@ -103,23 +72,20 @@
   --color-chart-3: var(--chart-3);
   --color-chart-4: var(--chart-4);
   --color-chart-5: var(--chart-5);
+  --color-gold: var(--gold);
+  --color-gold-deep: var(--gold-deep);
+  --color-leaf: var(--leaf);
+  --color-cocoa: var(--cocoa);
+  --color-cream: var(--cream);
+  --color-cream-deep: var(--cream-deep);
+  --color-sun: var(--sun);
+  --color-berry: var(--berry);
+  --color-pistachio: var(--pistachio);
+  --color-mango: var(--mango);
   --radius-sm: calc(var(--radius) - 4px);
   --radius-md: calc(var(--radius) - 2px);
   --radius-lg: var(--radius);
   --radius-xl: calc(var(--radius) + 4px);
-  --color-sidebar: var(--sidebar);
-  --color-sidebar-foreground: var(--sidebar-foreground);
-  --color-sidebar-primary: var(--sidebar-primary);
-  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
-  --color-sidebar-accent: var(--sidebar-accent);
-  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
-  --color-sidebar-border: var(--sidebar-border);
-  --color-sidebar-ring: var(--sidebar-ring);
-
-  /* Adding new custom colors for enhanced ice cream aesthetic */
-  --color-mint: #cfffe2;
-  --color-pastel-green: #a2d5c6;
-  --color-light-gray: #f6f6f6;
 }
 
 @layer base {
@@ -127,6 +93,99 @@
     @apply border-border outline-ring/50;
   }
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground antialiased;
+  }
+}
+
+@layer utilities {
+  .font-display {
+    font-family: var(--font-fraunces), ui-serif, Georgia, serif;
+  }
+
+  .font-script {
+    font-family: var(--font-script), cursive;
+  }
+
+  .arch {
+    border-radius: 999px 999px 1rem 1rem;
+  }
+
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+
+  .reveal {
+    animation: reveal-up 0.7s ease-out both;
+  }
+
+  .reveal-delay-1 {
+    animation-delay: 0.12s;
+  }
+
+  .reveal-delay-2 {
+    animation-delay: 0.24s;
+  }
+
+  .reveal-delay-3 {
+    animation-delay: 0.38s;
+  }
+
+  .hero-kenburns {
+    animation: kenburns 18s ease-in-out infinite alternate;
+  }
+
+  .stagger-item {
+    animation: reveal-up 0.45s ease-out both;
+  }
+
+  .float-slow {
+    animation: float 6s ease-in-out infinite;
+  }
+}
+
+@keyframes reveal-up {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes kenburns {
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(1.06);
+  }
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal,
+  .reveal-delay-1,
+  .reveal-delay-2,
+  .reveal-delay-3,
+  .hero-kenburns,
+  .stagger-item,
+  .float-slow {
+    animation: none;
   }
 }

@@ -1,28 +1,34 @@
 import type React from "react"
 import type { Metadata } from "next"
-import { Playfair_Display, Poppins } from "next/font/google"
-import { GeistMono } from "geist/font/mono"
+import { Fraunces, DM_Sans, Great_Vibes } from "next/font/google"
 import { Analytics } from "@vercel/analytics/next"
 import { Suspense } from "react"
 import "./globals.css"
 
-const playfair = Playfair_Display({
+const fraunces = Fraunces({
   subsets: ["latin"],
-  variable: "--font-playfair",
+  variable: "--font-fraunces",
   display: "swap",
 })
 
-const poppins = Poppins({
+const dmSans = DM_Sans({
   subsets: ["latin"],
-  weight: ["300", "400", "500", "600", "700"],
-  variable: "--font-poppins",
+  weight: ["400", "500", "600", "700"],
+  variable: "--font-dm-sans",
+  display: "swap",
+})
+
+const greatVibes = Great_Vibes({
+  subsets: ["latin"],
+  weight: "400",
+  variable: "--font-script",
   display: "swap",
 })
 
 export const metadata: Metadata = {
-  title: "Icezea - Premium Ice Cream for Everyone",
+  title: "IceZea — Frozen Indulgence",
   description:
-    "UAE-based premium ice cream manufacturer crafting kulfis, ice creams, fruit popsicles, and sip-ups with real fruit and pure milk.",
+    "Premium kulfi & ice creams crafted in the UAE with real ingredients and pure milk. Pure flavours, timeless indulgence.",
 }
 
 export default function RootLayout({
@@ -32,7 +38,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`font-sans ${poppins.variable} ${playfair.variable} ${GeistMono.variable}`}>
+      <body className={`font-sans ${dmSans.variable} ${fraunces.variable} ${greatVibes.variable}`}>
         <Suspense fallback={null}>{children}</Suspense>
         <Analytics />
       </body>

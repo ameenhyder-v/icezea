@@ -1,102 +1,108 @@
 import Link from "next/link"
-import { Instagram, Facebook, Twitter, Mail, Phone, MapPin } from "lucide-react"
-import MintFooterShader from "./mint-footer-shader"
+import { Instagram, Facebook, Phone, Mail, MapPin, Leaf, BadgeCheck } from "lucide-react"
+import { Logo } from "@/components/logo"
+
+const quickLinks = [
+  { href: "/products", label: "Shop" },
+  { href: "/products", label: "Flavours" },
+  { href: "/about", label: "Our Story" },
+  { href: "/contact", label: "Contact" },
+]
+
+const helpLinks = [
+  { href: "/contact", label: "Become a Retailer" },
+  { href: "/contact", label: "Shipping & Delivery" },
+  { href: "/contact", label: "FAQs" },
+  { href: "/contact", label: "Wholesale Enquiries" },
+]
 
 export function Footer() {
   return (
-    <footer className="relative overflow-hidden">
-      <div className="absolute inset-0 z-0">
-        <MintFooterShader
-          proportion={0.5}
-          softness={1.2}
-          distortion={0.3}
-          swirl={0.6}
-          swirlIterations={8}
-          shapeScale={0.15}
-          scale={1.2}
-          speed={0.5}
-          colors={["#FFE5EC", "#FFF8E7", "#E8D5F2", "#FFE4D6"]}
-        />
-      </div>
-
-      <div className="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8 py-12 text-gray-800">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
-          {/* Brand */}
-          <div className="space-y-4">
-            <div className="text-3xl font-serif font-bold text-gray-900">Icezea</div>
-            <p className="text-sm text-gray-700">Premium Ice Cream for Everyone</p>
-            {/* <p className="text-xs text-gray-600">Made with ❤️ in UAE</p> */}
-          </div>
-
-          {/* Quick Links */}
-          <div className="space-y-4">
-            <h3 className="font-semibold text-lg text-gray-900">Quick Links</h3>
-            <nav className="flex flex-col gap-2">
-              <Link href="/" className="text-sm text-gray-700 hover:text-gray-900 transition-colors">
-                Home
-              </Link>
-              <Link href="/products" className="text-sm text-gray-700 hover:text-gray-900 transition-colors">
-                Products
-              </Link>
-              <Link href="#about" className="text-sm text-gray-700 hover:text-gray-900 transition-colors">
-                About Us
-              </Link>
-              <Link href="#contact" className="text-sm text-gray-700 hover:text-gray-900 transition-colors">
-                Contact
-              </Link>
-            </nav>
-          </div>
-
-          {/* Contact Info */}
-          <div className="space-y-4">
-            <h3 className="font-semibold text-lg text-gray-900">Contact Us</h3>
-            <div className="space-y-3">
-              <div className="flex items-start gap-2 text-sm text-gray-700">
-                <MapPin size={16} className="mt-1 flex-shrink-0" />
-                <span>Ajman, United Arab Emirates</span>
-              </div>
-              <div className="flex items-center gap-2 text-sm text-gray-700">
-                <Phone size={16} className="flex-shrink-0" />
-                <span>+971 XX XXX XXXX</span>
-              </div>
-              <div className="flex items-center gap-2 text-sm text-gray-700">
-                <Mail size={16} className="flex-shrink-0" />
-                <span>hello@icezea.ae</span>
-              </div>
-            </div>
-          </div>
-
-          {/* Social Media */}
-          <div className="space-y-4">
-            <h3 className="font-semibold text-lg text-gray-900">Follow Us</h3>
-            <div className="flex gap-4">
-              <a
-                href="#"
-                className="w-10 h-10 rounded-full bg-pink-200/40 flex items-center justify-center hover:bg-pink-200/60 transition-colors backdrop-blur-sm"
-                aria-label="Instagram"
-              >
-                <Instagram size={20} className="text-gray-800" />
-              </a>
-              <a
-                href="#"
-                className="w-10 h-10 rounded-full bg-pink-200/40 flex items-center justify-center hover:bg-pink-200/60 transition-colors backdrop-blur-sm"
-                aria-label="Facebook"
-              >
-                <Facebook size={20} className="text-gray-800" />
-              </a>
-              <a
-                href="#"
-                className="w-10 h-10 rounded-full bg-pink-200/40 flex items-center justify-center hover:bg-pink-200/60 transition-colors backdrop-blur-sm"
-                aria-label="Twitter"
-              >
-                <Twitter size={20} className="text-gray-800" />
-              </a>
-            </div>
+    <footer className="border-t border-gold/15 bg-cream-deep">
+      <div className="mx-auto grid max-w-7xl gap-12 px-4 py-16 sm:px-6 md:grid-cols-2 lg:grid-cols-[1.4fr_1fr_1fr_1.2fr] lg:px-8">
+        <div className="space-y-4">
+          <Logo />
+          <p className="max-w-xs text-sm leading-relaxed text-muted-foreground">
+            Premium kulfi & ice creams crafted with love, real ingredients and nostalgic flavours. Made in UAE.
+          </p>
+          <div className="flex gap-3 pt-1">
+            <a
+              href="#"
+              aria-label="Instagram"
+              className="flex h-10 w-10 items-center justify-center rounded-full border border-gold/30 bg-card text-gold-deep transition-colors hover:bg-gold hover:text-primary-foreground"
+            >
+              <Instagram size={17} />
+            </a>
+            <a
+              href="#"
+              aria-label="Facebook"
+              className="flex h-10 w-10 items-center justify-center rounded-full border border-gold/30 bg-card text-gold-deep transition-colors hover:bg-gold hover:text-primary-foreground"
+            >
+              <Facebook size={17} />
+            </a>
           </div>
         </div>
 
-        <div className="mt-12 pt-8 border-t border-gray-300 text-center text-sm text-gray-600">
-          <p>&copy; {new Date().getFullYear()} Icezea Ice Cream Manufacturing. All rights reserved.</p>
+        <div className="space-y-4">
+          <h3 className="text-xs font-bold uppercase tracking-[0.2em] text-gold-deep">Quick Links</h3>
+          <nav className="flex flex-col gap-2.5 text-sm text-muted-foreground">
+            {quickLinks.map((link) => (
+              <Link key={link.label} href={link.href} className="transition-colors hover:text-gold-deep">
+                {link.label}
+              </Link>
+            ))}
+          </nav>
+        </div>
+
+        <div className="space-y-4">
+          <h3 className="text-xs font-bold uppercase tracking-[0.2em] text-gold-deep">Help</h3>
+          <nav className="flex flex-col gap-2.5 text-sm text-muted-foreground">
+            {helpLinks.map((link) => (
+              <Link key={link.label} href={link.href} className="transition-colors hover:text-gold-deep">
+                {link.label}
+              </Link>
+            ))}
+          </nav>
+        </div>
+
+        <div className="space-y-5">
+          <h3 className="text-xs font-bold uppercase tracking-[0.2em] text-gold-deep">Contact Us</h3>
+          <div className="space-y-3 text-sm text-muted-foreground">
+            <div className="flex items-center gap-2.5">
+              <Phone size={15} className="shrink-0 text-gold" />
+              <span>+971 XX XXX XXXX</span>
+            </div>
+            <div className="flex items-center gap-2.5">
+              <Mail size={15} className="shrink-0 text-gold" />
+              <span>hello@icezea.ae</span>
+            </div>
+            <div className="flex items-center gap-2.5">
+              <MapPin size={15} className="shrink-0 text-gold" />
+              <span>Ajman, United Arab Emirates</span>
+            </div>
+          </div>
+
+          <div className="flex gap-3 pt-1">
+            <div className="flex h-16 w-16 flex-col items-center justify-center rounded-full border border-leaf/40 bg-card text-center">
+              <Leaf size={16} className="text-leaf" />
+              <span className="mt-0.5 text-[0.5rem] font-bold uppercase leading-tight tracking-wide text-leaf">
+                100% Natural
+              </span>
+            </div>
+            <div className="flex h-16 w-16 flex-col items-center justify-center rounded-full border border-gold/40 bg-card text-center">
+              <BadgeCheck size={16} className="text-gold-deep" />
+              <span className="mt-0.5 text-[0.5rem] font-bold uppercase leading-tight tracking-wide text-gold-deep">
+                Halal
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div className="border-t border-gold/15">
+        <div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-2 px-4 py-5 text-xs text-muted-foreground sm:flex-row sm:px-6 lg:px-8">
+          <span>© {new Date().getFullYear()} IceZea Ice Creams. All Rights Reserved.</span>
+          <span className="font-semibold uppercase tracking-[0.18em] text-gold-deep">Made in UAE</span>
         </div>
       </div>
     </footer>
