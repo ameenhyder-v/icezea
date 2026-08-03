@@ -1,402 +1,210 @@
-import { Header } from "@/components/header"
-import { Footer } from "@/components/footer"
-import { Warp } from "@paper-design/shaders-react"
-import { Heart, Store, Leaf, Milk, ChefHat } from "lucide-react"
 import Link from "next/link"
+import Image from "next/image"
+import {
+  Leaf,
+  Milk,
+  Sparkles,
+  Flag,
+  ShieldCheck,
+  ChefHat,
+  Droplets,
+  Truck,
+  ArrowRight,
+} from "lucide-react"
+import type { Metadata } from "next"
+import { SiteShell } from "@/components/site-shell"
+import { HomeHero } from "@/components/home-hero"
+import { EveryoneRange } from "@/components/everyone-range"
+import { JsonLd, breadcrumbSchema, webPageSchema } from "@/components/json-ld"
+import { featuredFlavours } from "@/lib/products"
+import { createPageMetadata, pageSeo } from "@/lib/seo"
+
+export const metadata: Metadata = createPageMetadata(pageSeo.home)
+
+const trustStrip = [
+  { icon: Leaf, label: "100% Vegetarian" },
+  { icon: Milk, label: "Made with Real Milk" },
+  { icon: Sparkles, label: "No Artificial Flavours" },
+  { icon: Flag, label: "Made in UAE" },
+]
+
+const valueProps = [
+  {
+    icon: Leaf,
+    title: "Real Ingredients",
+    text: "Finest nuts, fruits & pure milk.",
+  },
+  {
+    icon: ChefHat,
+    title: "Authentic Recipes",
+    text: "Traditional flavours, crafted to perfection.",
+  },
+  {
+    icon: ShieldCheck,
+    title: "Fresh & Hygienic",
+    text: "Prepared in a modern hygienic facility.",
+  },
+  {
+    icon: Droplets,
+    title: "No Preservatives",
+    text: "Pure taste with zero compromise.",
+  },
+  {
+    icon: Truck,
+    title: "Delivering Quality",
+    text: "Ensuring freshness across UAE.",
+  },
+]
 
 export default function Home() {
   return (
-    <div className="min-h-screen">
-      <Header />
+    <SiteShell>
+      <JsonLd
+        data={[
+          webPageSchema({
+            title: pageSeo.home.title,
+            description: pageSeo.home.description,
+            path: "/",
+          }),
+          breadcrumbSchema([{ name: "Home", path: "/" }]),
+        ]}
+      />
+      <HomeHero />
 
-      <div className="fixed inset-0 -z-10 opacity-50">
-        <Warp
-          style={{ height: "100%", width: "100%" }}
-          proportion={0.45}
-          softness={1.2}
-          distortion={0.2}
-          swirl={0.8}
-          swirlIterations={8}
-          shape="checks"
-          shapeScale={0.15}
-          scale={1}
-          rotation={0}
-          speed={1.8}
-          colors={["hsl(340, 100%, 85%)", "hsl(85, 100%, 90%)", "hsl(240, 100%, 90%)", "hsl(45, 100%, 88%)", "#FFD9C2"]}
+      <EveryoneRange />
+
+      {/* Mobile: compact trust strip · Desktop/tablet: Crafted with care cards */}
+      <section
+        aria-labelledby="values-heading"
+        className="relative overflow-hidden border-y border-gold/20 bg-gradient-to-b from-card via-cream to-cream"
+      >
+        <div
+          aria-hidden
+          className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-gold/55 to-transparent"
         />
-      </div>
 
-      <div className="relative">
-        {/* Hero Section */}
-        <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
-          <div className="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="relative group">
-              <div className="absolute -inset-1 bg-gradient-to-r from-white/40 via-white/20 to-white/40 rounded-[2rem] blur-xl opacity-60 group-hover:opacity-80 transition-opacity duration-500"></div>
-
-              <div className="relative backdrop-blur-[40px] bg-white/20 rounded-[2rem] shadow-[0_8px_32px_rgba(31,38,135,0.15),0_2px_16px_rgba(255,255,255,0.4)_inset] p-8 sm:p-12 lg:p-16 border border-white/30 overflow-hidden">
-                <div className="absolute inset-0 bg-gradient-to-br from-white/40 via-white/10 to-transparent opacity-60 group-hover:opacity-80 transition-opacity duration-700"></div>
-                <div className="absolute top-0 left-0 right-0 h-40 bg-gradient-to-b from-white/30 to-transparent blur-2xl"></div>
-                <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-white/20 to-transparent blur-xl"></div>
-
-                <div className="relative z-10 text-center space-y-8">
-                  <h1 className="text-5xl sm:text-6xl lg:text-7xl font-serif font-bold text-gray-800 text-balance">
-                    Premium Ice Cream for Everyone
-                  </h1>
-                  <p className="text-xl sm:text-2xl text-gray-700 font-light text-balance">
-                    Crafted with real fruit, pure milk, and love.
-                  </p>
-                  <div className="flex flex-col sm:flex-row gap-4 justify-center items-center pt-4">
-                    <Link
-                      href="/products"
-                      className="px-8 py-4 bg-primary text-primary-foreground rounded-full font-semibold text-lg hover:scale-105 hover:shadow-xl transition-all duration-300 shadow-lg"
-                    >
-                      Explore Our Flavors
-                    </Link>
-                    <Link
-                      href="#about"
-                      className="px-8 py-4 bg-white/70 backdrop-blur-sm text-gray-800 border-2 border-white/50 rounded-full font-semibold text-lg hover:scale-105 hover:bg-white/90 hover:shadow-lg transition-all duration-300"
-                    >
-                      Learn More
-                    </Link>
-                  </div>
-                  {/* <div className="pt-8">
-                    <img
-                      src="/colorful-ice-cream-scoops-and-kulfi-sticks-arrange.jpg"
-                      alt="Icezea Ice Cream Products"
-                      className="mx-auto rounded-3xl shadow-2xl border border-white/30"
-                    />
-                  </div> */}
+        {/* Mobile only */}
+        <div className="safe-px relative mx-auto max-w-7xl py-6 md:hidden">
+          <div className="grid grid-cols-4 gap-1.5">
+            {trustStrip.map(({ icon: Icon, label }) => (
+              <div key={label} className="flex flex-col items-center gap-2 text-center">
+                <div className="flex h-10 w-10 items-center justify-center rounded-full border border-gold/25 bg-white text-gold-deep shadow-[0_6px_14px_-8px_rgba(60,35,15,0.28)]">
+                  <Icon className="size-4" strokeWidth={1.6} aria-hidden />
                 </div>
+                <span className="max-w-[4.75rem] text-[0.5rem] font-bold uppercase leading-tight tracking-[0.04em] text-cocoa/80">
+                  {label}
+                </span>
               </div>
-            </div>
+            ))}
           </div>
-        </section>
+        </div>
 
-        <section id="about" className="relative py-20">
-          <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="relative group">
-              <div className="absolute -inset-1 bg-gradient-to-r from-white/40 via-white/20 to-white/40 rounded-[2rem] blur-xl opacity-60 group-hover:opacity-80 transition-opacity duration-500"></div>
-
-              <div className="relative bg-white/20 backdrop-blur-[40px] rounded-[2rem] shadow-[0_8px_32px_rgba(31,38,135,0.15),0_2px_16px_rgba(255,255,255,0.4)_inset] p-8 sm:p-12 border border-white/30 overflow-hidden group-hover:shadow-[0_20px_60px_rgba(31,38,135,0.2),0_4px_20px_rgba(255,255,255,0.5)_inset] transition-all duration-500">
-                <div className="absolute inset-0 bg-gradient-to-br from-white/40 via-white/10 to-transparent opacity-60 group-hover:opacity-80 transition-opacity duration-700"></div>
-                <div className="absolute top-0 left-0 right-0 h-40 bg-gradient-to-b from-white/30 to-transparent blur-2xl"></div>
-                <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-white/20 to-transparent blur-xl"></div>
-
-                <div className="relative z-10 grid md:grid-cols-2 gap-12 items-center">
-                  <div className="space-y-6">
-                    <h2 className="text-4xl sm:text-5xl font-serif font-bold text-gray-800">Our Story</h2>
-                    <p className="text-lg text-gray-700 leading-relaxed">
-                      Icezea is a UAE-based premium ice cream manufacturer dedicated to crafting the finest frozen
-                      treats. We believe in using only the best ingredients – real fruit purees, pure milk, and
-                      authentic flavors that bring joy to every scoop.
-                    </p>
-                    <p className="text-lg text-gray-700 leading-relaxed">
-                      Our commitment to quality has made us a trusted name across the Emirates, serving over 350+
-                      retailers and bringing smiles to families everywhere.
-                    </p>
-                    <div className="flex items-center gap-3 text-primary font-semibold text-xl">
-                      <Store size={28} />
-                      <span>Serving 350+ retailers across all Emirates</span>
-                    </div>
-                  </div>
-                  <div className="relative">
-                    <img
-                      src="/icecreamI.jpg"
-                      alt="Products Collage"
-                      className="rounded-3xl shadow-2xl border border-white/30"
-                    />
-                  </div>
-                </div>
-              </div>
-            </div>
+        {/* Tablet + desktop */}
+        <div className="safe-px relative mx-auto hidden max-w-7xl py-14 md:block lg:py-16">
+          <div className="mx-auto mb-10 max-w-xl text-center">
+            <p className="eyebrow">Why IceZea</p>
+            <h2
+              id="values-heading"
+              className="mt-2 font-display text-3xl font-semibold tracking-tight text-cocoa"
+            >
+              Crafted with care
+            </h2>
           </div>
-        </section>
 
-        <section className="relative py-20">
-          <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="relative group">
-              <div className="absolute -inset-1 bg-gradient-to-r from-white/40 via-white/20 to-white/40 rounded-[2rem] blur-xl opacity-60 group-hover:opacity-80 transition-opacity duration-500"></div>
-
-              <div className="relative backdrop-blur-[40px] bg-white/20 rounded-[2rem] shadow-[0_8px_32px_rgba(31,38,135,0.15),0_2px_16px_rgba(255,255,255,0.4)_inset] p-8 sm:p-12 border border-white/30 overflow-hidden">
-                <div className="absolute inset-0 bg-gradient-to-br from-white/40 via-white/10 to-transparent opacity-60 group-hover:opacity-80 transition-opacity duration-700"></div>
-                <div className="absolute top-0 left-0 right-0 h-40 bg-gradient-to-b from-white/30 to-transparent blur-2xl"></div>
-                <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-white/20 to-transparent blur-xl"></div>
-
-                <div className="relative z-10">
-                  <div className="text-center mb-16">
-                    <h2 className="text-4xl sm:text-5xl font-serif font-bold text-gray-800 mb-4">
-                      Our Delicious Range
-                    </h2>
-                    <p className="text-lg text-gray-700 max-w-2xl mx-auto">
-                      From traditional kulfis to refreshing popsicles, discover our handcrafted collection
-                    </p>
-                  </div>
-
-                  <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
-                    <div className="group/card backdrop-blur-[40px] bg-gradient-to-br from-white/30 to-white/15 border border-white/50 rounded-[1.5rem] p-8 hover:shadow-[0_16px_48px_rgba(31,38,135,0.25)] transition-all duration-500 hover:-translate-y-3 relative overflow-hidden">
-                      <div className="absolute inset-0 bg-gradient-to-br from-white/40 via-transparent to-white/15 opacity-0 group-hover/card:opacity-100 transition-opacity duration-500"></div>
-                      <div className="absolute top-0 left-0 right-0 h-32 bg-gradient-to-b from-white/30 to-transparent blur-xl opacity-0 group-hover/card:opacity-100 transition-opacity duration-500"></div>
-                      <div className="text-center space-y-5">
-                        <div className="relative overflow-hidden rounded-2xl aspect-square mb-2">
-                          <img 
-                            src="/kulfiImage.jpg" 
-                            alt="Kulfis" 
-                            className="w-full h-full object-cover transition-transform duration-700 group-hover/card:scale-110"
-                          />
-                          <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover/card:opacity-100 transition-opacity duration-500"></div>
-                        </div>
-                        <h3 className="text-2xl font-serif font-bold text-gray-800 group-hover/card:text-primary transition-colors duration-300">Kulfis</h3>
-                        <p className="text-sm text-gray-700 leading-relaxed">Malai, Pista, Butterscotch, Mango, Tender Coconut</p>
-                        <Link
-                          href="/products?category=kulfis"
-                          className="inline-block mt-4 px-6 py-2.5 bg-primary text-primary-foreground rounded-full font-semibold hover:scale-105 hover:shadow-lg transition-all duration-300"
-                        >
-                          See More
-                        </Link>
-                      </div>
-                    </div>
-
-                    <div className="group/card backdrop-blur-[40px] bg-gradient-to-br from-white/30 to-white/15 border border-white/50 rounded-[1.5rem] p-8 hover:shadow-[0_16px_48px_rgba(31,38,135,0.25)] transition-all duration-500 hover:-translate-y-3 relative overflow-hidden">
-                      <div className="absolute inset-0 bg-gradient-to-br from-white/40 via-transparent to-white/15 opacity-0 group-hover/card:opacity-100 transition-opacity duration-500"></div>
-                      <div className="absolute top-0 left-0 right-0 h-32 bg-gradient-to-b from-white/30 to-transparent blur-xl opacity-0 group-hover/card:opacity-100 transition-opacity duration-500"></div>
-                      <div className="text-center space-y-5">
-                        <div className="relative overflow-hidden rounded-2xl aspect-square mb-2">
-                          <img 
-                            src="/popsicles.jpg" 
-                            alt="Fruit Popsicles" 
-                            className="w-full h-full object-cover transition-transform duration-700 group-hover/card:scale-110"
-                          />
-                          <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover/card:opacity-100 transition-opacity duration-500"></div>
-                        </div>
-                        <h3 className="text-2xl font-serif font-bold text-gray-800 group-hover/card:text-secondary transition-colors duration-300">Fruit Popsicles</h3>
-                        <p className="text-sm text-gray-700 leading-relaxed">Avocado, Fig & Honey, Pineapple, Jackfruit</p>
-                        <Link
-                          href="/products?category=popsicles"
-                          className="inline-block mt-4 px-6 py-2.5 bg-secondary text-secondary-foreground rounded-full font-semibold hover:scale-105 hover:shadow-lg transition-all duration-300"
-                        >
-                          See More
-                        </Link>
-                      </div>
-                    </div>
-
-                    <div className="group/card backdrop-blur-[40px] bg-gradient-to-br from-white/30 to-white/15 border border-white/50 rounded-[1.5rem] p-8 hover:shadow-[0_16px_48px_rgba(31,38,135,0.25)] transition-all duration-500 hover:-translate-y-3 relative overflow-hidden">
-                      <div className="absolute inset-0 bg-gradient-to-br from-white/40 via-transparent to-white/15 opacity-0 group-hover/card:opacity-100 transition-opacity duration-500"></div>
-                      <div className="absolute top-0 left-0 right-0 h-32 bg-gradient-to-b from-white/30 to-transparent blur-xl opacity-0 group-hover/card:opacity-100 transition-opacity duration-500"></div>
-                      <div className="text-center space-y-5">
-                        <div className="relative overflow-hidden rounded-2xl aspect-square mb-2">
-                          <img 
-                            src="/sipups.jpg" 
-                            alt="Sip-Up Drinks" 
-                            className="w-full h-full object-cover transition-transform duration-700 group-hover/card:scale-110"
-                          />
-                          <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover/card:opacity-100 transition-opacity duration-500"></div>
-                        </div>
-                        <h3 className="text-2xl font-serif font-bold text-gray-800 group-hover/card:text-chart-4 transition-colors duration-300">Sip-Up</h3>
-                        <p className="text-sm text-gray-700 leading-relaxed">Fruit & milk-based refreshing drinks</p>
-                        <Link
-                          href="/products?category=sipup"
-                          className="inline-block mt-4 px-6 py-2.5 bg-chart-4 text-background rounded-full font-semibold hover:scale-105 hover:shadow-lg transition-all duration-300"
-                        >
-                          See More
-                        </Link>
-                      </div>
-                    </div>
-                  </div>
+          <div className="grid grid-cols-2 gap-4 md:grid-cols-3 lg:grid-cols-5">
+            {valueProps.map(({ icon: Icon, title, text }) => (
+              <div
+                key={title}
+                className="value-card flex flex-col items-center rounded-[1.35rem] border border-gold/25 p-6 text-center"
+              >
+                <div className="flex h-14 w-14 items-center justify-center rounded-full border border-gold/40 bg-gradient-to-b from-white to-cream text-gold-deep shadow-[0_8px_20px_-10px_rgba(160,120,40,0.35)]">
+                  <Icon size={22} strokeWidth={1.6} aria-hidden />
                 </div>
+                <h3 className="mt-4 font-display text-base font-semibold tracking-tight text-cocoa">
+                  {title}
+                </h3>
+                <p className="mt-2 text-[0.8rem] leading-relaxed text-muted-foreground">{text}</p>
               </div>
-            </div>
+            ))}
           </div>
-        </section>
+        </div>
+      </section>
 
-        <section className="relative py-20">
-          <div className="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="text-center mb-16">
-              <h2 className="text-4xl sm:text-5xl font-serif font-bold text-gray-800 mb-4">Why Choose Icezea</h2>
-              <p className="text-lg text-gray-700 max-w-2xl mx-auto">
-                Quality ingredients and authentic recipes make all the difference
-              </p>
-            </div>
-
-            <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
-              <div className="group backdrop-blur-[40px] bg-white/20 rounded-[1.5rem] p-8 border border-white/30 shadow-[0_8px_32px_rgba(31,38,135,0.12)] hover:shadow-[0_16px_56px_rgba(31,38,135,0.22)] transition-all duration-500 hover:-translate-y-3 relative overflow-hidden">
-                <div className="absolute inset-0 rounded-[1.5rem] bg-gradient-to-br from-white/40 via-transparent to-white/15 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                <div className="absolute top-0 left-0 right-0 h-24 bg-gradient-to-b from-white/25 to-transparent blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                <div className="relative z-10 text-center space-y-4">
-                  <div className="w-16 h-16 mx-auto bg-pastel-green/60 backdrop-blur-sm rounded-full flex items-center justify-center shadow-lg group-hover:scale-110 group-hover:bg-pastel-green/80 transition-all duration-300">
-                    <Leaf className="text-gray-800 group-hover:text-primary transition-colors duration-300" size={32} />
-                  </div>
-                  <h3 className="text-xl font-semibold text-gray-800 group-hover:text-primary transition-colors duration-300">Real Fruit Purees</h3>
-                  <p className="text-gray-700 text-sm leading-relaxed">Made with authentic fruit purees for natural flavor</p>
-                </div>
-              </div>
-
-              <div className="group backdrop-blur-[40px] bg-white/20 rounded-[1.5rem] p-8 border border-white/30 shadow-[0_8px_32px_rgba(31,38,135,0.12)] hover:shadow-[0_16px_56px_rgba(31,38,135,0.22)] transition-all duration-500 hover:-translate-y-3 relative overflow-hidden">
-                <div className="absolute inset-0 rounded-[1.5rem] bg-gradient-to-br from-white/40 via-transparent to-white/15 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                <div className="absolute top-0 left-0 right-0 h-24 bg-gradient-to-b from-white/25 to-transparent blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                <div className="relative z-10 text-center space-y-4">
-                  <div className="w-16 h-16 mx-auto bg-pastel-green/60 backdrop-blur-sm rounded-full flex items-center justify-center shadow-lg group-hover:scale-110 group-hover:bg-pastel-green/80 transition-all duration-300">
-                    <Milk className="text-gray-800 group-hover:text-primary transition-colors duration-300" size={32} />
-                  </div>
-                  <h3 className="text-xl font-semibold text-gray-800 group-hover:text-primary transition-colors duration-300">Pure Milk & Ingredients</h3>
-                  <p className="text-gray-700 text-sm leading-relaxed">Only the finest quality milk and natural ingredients</p>
-                </div>
-              </div>
-
-              <div className="group backdrop-blur-[40px] bg-white/20 rounded-[1.5rem] p-8 border border-white/30 shadow-[0_8px_32px_rgba(31,38,135,0.12)] hover:shadow-[0_16px_56px_rgba(31,38,135,0.22)] transition-all duration-500 hover:-translate-y-3 relative overflow-hidden">
-                <div className="absolute inset-0 rounded-[1.5rem] bg-gradient-to-br from-white/40 via-transparent to-white/15 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                <div className="absolute top-0 left-0 right-0 h-24 bg-gradient-to-b from-white/25 to-transparent blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                <div className="relative z-10 text-center space-y-4">
-                  <div className="w-16 h-16 mx-auto bg-pastel-green/60 backdrop-blur-sm rounded-full flex items-center justify-center shadow-lg group-hover:scale-110 group-hover:bg-pastel-green/80 transition-all duration-300">
-                    <ChefHat className="text-gray-800 group-hover:text-primary transition-colors duration-300" size={32} />
-                  </div>
-                  <h3 className="text-xl font-semibold text-gray-800 group-hover:text-primary transition-colors duration-300">Handcrafted Recipes</h3>
-                  <p className="text-gray-700 text-sm leading-relaxed">Traditional methods meet modern innovation</p>
-                </div>
-              </div>
-
-              <div className="group backdrop-blur-[40px] bg-white/20 rounded-[1.5rem] p-8 border border-white/30 shadow-[0_8px_32px_rgba(31,38,135,0.12)] hover:shadow-[0_16px_56px_rgba(31,38,135,0.22)] transition-all duration-500 hover:-translate-y-3 relative overflow-hidden">
-                <div className="absolute inset-0 rounded-[1.5rem] bg-gradient-to-br from-white/40 via-transparent to-white/15 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                <div className="absolute top-0 left-0 right-0 h-24 bg-gradient-to-b from-white/25 to-transparent blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                <div className="relative z-10 text-center space-y-4">
-                  <div className="w-16 h-16 mx-auto bg-pastel-green/60 backdrop-blur-sm rounded-full flex items-center justify-center shadow-lg group-hover:scale-110 group-hover:bg-pastel-green/80 transition-all duration-300">
-                    <Heart className="text-gray-800 group-hover:text-primary transition-colors duration-300" size={32} />
-                  </div>
-                  <h3 className="text-xl font-semibold text-gray-800 group-hover:text-primary transition-colors duration-300">Loved Across UAE</h3>
-                  <p className="text-gray-700 text-sm leading-relaxed">Trusted by families and retailers nationwide</p>
-                </div>
-              </div>
-            </div>
+      {/* EXPLORE FLAVOURS */}
+      <section id="flavours" className="relative overflow-hidden bg-cream py-14 sm:py-20 lg:py-24">
+        <div
+          aria-hidden
+          className="pointer-events-none absolute -left-20 top-10 h-64 w-64 rounded-full bg-[radial-gradient(circle,rgba(212,175,55,0.12),transparent_70%)]"
+        />
+        <div className="safe-px relative mx-auto grid max-w-7xl items-center gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:gap-10">
+          <div className="text-center lg:text-left">
+            <p className="eyebrow">Taste the range</p>
+            <h2 className="mt-3 font-display text-2xl font-semibold tracking-tight text-cocoa sm:text-3xl md:text-4xl">
+              Explore Our Flavours
+            </h2>
+            <p className="mx-auto mt-3 max-w-sm text-sm text-muted-foreground sm:text-base lg:mx-0">
+              A flavour for every mood. A moment for every you.
+            </p>
+            <Link href="/products" className="btn-primary mt-6 w-full max-w-xs sm:mt-8 sm:w-auto">
+              Explore All Flavours <ArrowRight size={16} />
+            </Link>
           </div>
-        </section>
 
-        <section className="relative py-20">
-          <div className="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="relative group">
-              <div className="absolute -inset-1 bg-gradient-to-r from-white/40 via-white/20 to-white/40 rounded-[2rem] blur-xl opacity-60 group-hover:opacity-80 transition-opacity duration-500"></div>
-
-              <div className="relative backdrop-blur-[40px] bg-white/20 rounded-[2rem] shadow-[0_8px_32px_rgba(31,38,135,0.15),0_2px_16px_rgba(255,255,255,0.4)_inset] p-12 sm:p-16 border border-white/30 overflow-hidden text-center">
-                <div className="absolute inset-0 bg-gradient-to-br from-white/40 via-white/10 to-transparent opacity-60 group-hover:opacity-80 transition-opacity duration-700"></div>
-                <div className="absolute top-0 left-0 right-0 h-40 bg-gradient-to-b from-white/30 to-transparent blur-2xl"></div>
-                <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-white/20 to-transparent blur-xl"></div>
-
-                <div className="relative z-10">
-                  <Store className="mx-auto text-gray-800 mb-6" size={64} />
-                  <h2 className="text-4xl sm:text-5xl font-serif font-bold text-gray-800 mb-4">
-                    Available Across 350+ Stores & Restaurants
-                  </h2>
-                  <p className="text-xl text-gray-700 mb-8">In all Emirates</p>
-                  <Link
-                    href="#contact"
-                    className="inline-block px-8 py-4 bg-gray-800 text-white rounded-full font-semibold text-lg hover:scale-105 hover:shadow-xl transition-all duration-300 shadow-lg"
-                  >
-                    Become a Retailer
-                  </Link>
+          <div className="snap-row no-scrollbar -mx-4 flex gap-3 overflow-x-auto px-4 pb-2 sm:mx-0 sm:grid sm:grid-cols-3 sm:gap-4 sm:overflow-visible sm:px-0 md:grid-cols-3 lg:grid-cols-6 lg:gap-3">
+            {featuredFlavours.map((flavour) => (
+              <Link
+                key={flavour.name}
+                href={flavour.href}
+                className="snap-card group flex w-[38vw] min-w-[6.75rem] max-w-[8.5rem] shrink-0 flex-col items-center sm:w-auto sm:max-w-none"
+              >
+                <div className="arch relative aspect-[3/4.15] w-full overflow-hidden bg-cream-deep shadow-[0_14px_28px_rgba(60,35,15,0.1)] ring-1 ring-gold/25 transition-all duration-500 group-hover:-translate-y-2 group-hover:shadow-[0_22px_40px_rgba(160,120,40,0.18)] group-hover:ring-gold/50">
+                  <Image
+                    src={flavour.image}
+                    alt={flavour.name}
+                    fill
+                    className="object-cover transition-transform duration-700 group-hover:scale-105"
+                    sizes="(max-width: 640px) 38vw, 120px"
+                  />
                 </div>
-              </div>
-            </div>
+                <span className="mt-2.5 text-center text-[0.62rem] font-bold uppercase tracking-[0.06em] text-cocoa transition-colors group-hover:text-gold-deep sm:mt-3 sm:text-[0.68rem] sm:tracking-[0.08em]">
+                  {flavour.name}
+                </span>
+              </Link>
+            ))}
           </div>
-        </section>
+        </div>
+      </section>
 
-        <section className="py-20" id="contact">
-          <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="max-w-2xl mx-auto backdrop-blur-[40px] bg-white/20 rounded-[2.5rem] p-12 shadow-[0_8px_32px_rgba(31,38,135,0.15)] border border-white/30 relative overflow-hidden">
-              <div className="absolute inset-0 rounded-[2.5rem] bg-gradient-to-br from-white/50 via-transparent to-white/20" />
-              <div className="absolute inset-0 rounded-[2.5rem] shadow-[inset_0_2px_30px_rgba(255,255,255,0.6)]" />
-              <div className="absolute top-0 left-0 right-0 h-40 bg-gradient-to-b from-white/35 to-transparent rounded-t-[2.5rem] blur-2xl" />
-              <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-white/25 to-transparent blur-xl" />
-
-              <div className="relative z-10">
-                <div className="text-center mb-12">
-                  <h2 className="text-4xl sm:text-5xl font-serif font-bold text-gray-800 mb-4">
-                    Want to Bring Icezea to Your Shop?
-                  </h2>
-                  <p className="text-lg text-gray-700">Let's scoop up a partnership!</p>
-                </div>
-
-                <form className="space-y-6">
-                  <div className="grid sm:grid-cols-2 gap-6">
-                    <div>
-                      <label htmlFor="name" className="block text-sm font-medium text-gray-800 mb-2">
-                        Name
-                      </label>
-                      <input
-                        type="text"
-                        id="name"
-                        className="w-full px-4 py-3 rounded-xl border border-white/50 bg-white/25 backdrop-blur-md text-gray-800 placeholder:text-gray-500 focus:outline-none focus:ring-2 focus:ring-primary focus:border-white/60"
-                        placeholder="Your name"
-                      />
-                    </div>
-                    <div>
-                      <label htmlFor="business" className="block text-sm font-medium text-gray-800 mb-2">
-                        Business Name
-                      </label>
-                      <input
-                        type="text"
-                        id="business"
-                        className="w-full px-4 py-3 rounded-xl border border-white/50 bg-white/25 backdrop-blur-md text-gray-800 placeholder:text-gray-500 focus:outline-none focus:ring-2 focus:ring-primary focus:border-white/60"
-                        placeholder="Your business"
-                      />
-                    </div>
-                  </div>
-
-                  <div className="grid sm:grid-cols-2 gap-6">
-                    <div>
-                      <label htmlFor="emirate" className="block text-sm font-medium text-gray-800 mb-2">
-                        Emirate
-                      </label>
-                      <select
-                        id="emirate"
-                        className="w-full px-4 py-3 rounded-xl border border-white/50 bg-white/25 backdrop-blur-md text-gray-800 focus:outline-none focus:ring-2 focus:ring-primary focus:border-white/60"
-                      >
-                        <option>Select Emirate</option>
-                        <option>Dubai</option>
-                        <option>Abu Dhabi</option>
-                        <option>Sharjah</option>
-                        <option>Ajman</option>
-                        <option>Umm Al Quwain</option>
-                        <option>Ras Al Khaimah</option>
-                        <option>Fujairah</option>
-                      </select>
-                    </div>
-                    <div>
-                      <label htmlFor="phone" className="block text-sm font-medium text-gray-800 mb-2">
-                        Contact Number
-                      </label>
-                      <input
-                        type="tel"
-                        id="phone"
-                        className="w-full px-4 py-3 rounded-xl border border-white/50 bg-white/25 backdrop-blur-md text-gray-800 placeholder:text-gray-500 focus:outline-none focus:ring-2 focus:ring-primary focus:border-white/60"
-                        placeholder="+971 XX XXX XXXX"
-                      />
-                    </div>
-                  </div>
-
-                  <div>
-                    <label htmlFor="message" className="block text-sm font-medium text-gray-800 mb-2">
-                      Message
-                    </label>
-                    <textarea
-                      id="message"
-                      rows={5}
-                      className="w-full px-4 py-3 rounded-xl border border-white/50 bg-white/25 backdrop-blur-md text-gray-800 placeholder:text-gray-500 focus:outline-none focus:ring-2 focus:ring-primary resize-none focus:border-white/60"
-                      placeholder="Tell us about your business..."
-                    />
-                  </div>
-
-                  <button
-                    type="submit"
-                    className="w-full px-8 py-4 bg-primary text-primary-foreground rounded-full font-semibold text-lg hover:scale-105 hover:shadow-xl transition-all duration-300 shadow-lg"
-                  >
-                    Send Inquiry
-                  </button>
-                </form>
-              </div>
-            </div>
-          </div>
-        </section>
-      </div>
-
-      <Footer />
-    </div>
+      {/* Lifestyle CTA */}
+      <section className="relative min-h-[22rem] overflow-hidden sm:min-h-[26rem] md:min-h-[28rem]">
+        <div className="absolute inset-0">
+          <Image
+            src="/products/picnic-cooler.jpg"
+            alt="IceZea cooler packed with premium kulfi and popsicles for outdoor sharing"
+            fill
+            className="object-cover object-[center_40%] scale-105"
+            sizes="100vw"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-cocoa/92 via-cocoa/68 to-cocoa/40 sm:bg-gradient-to-r sm:from-cocoa/90 sm:via-cocoa/65 sm:to-cocoa/28" />
+        </div>
+        <div className="safe-px relative mx-auto flex h-full max-w-7xl flex-col items-start justify-end gap-4 py-16 sm:justify-center sm:gap-5 sm:py-20">
+          <p className="text-[0.65rem] font-bold uppercase tracking-[0.28em] text-gold sm:text-xs">
+            Across the Emirates
+          </p>
+          <h2 className="max-w-xl font-display text-2xl font-semibold tracking-tight text-white sm:text-3xl md:text-4xl">
+            Serving joy in 350+ stores & restaurants
+          </h2>
+          <p className="max-w-md text-sm leading-relaxed text-white/85 sm:text-base">
+            Bring IceZea to your shop — premium kulfi and popsicles your customers will love.
+          </p>
+          <Link
+            href="/contact"
+            className="inline-flex w-full max-w-xs items-center justify-center gap-2 rounded-full bg-gradient-to-b from-gold to-gold-deep px-7 py-3.5 text-sm font-bold uppercase tracking-[0.12em] text-cocoa shadow-[0_14px_32px_-10px_rgba(0,0,0,0.35)] ring-1 ring-white/20 transition-transform hover:scale-[1.02] active:scale-[0.98] sm:w-auto"
+          >
+            Become a Retailer <ArrowRight size={16} />
+          </Link>
+        </div>
+      </section>
+    </SiteShell>
   )
 }
