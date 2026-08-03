@@ -2,46 +2,30 @@
 @import "tw-animate-css";
 
 :root {
-  /* IceZea — Frozen Indulgence: cream canvas, gold brand, deep cocoa text */
-  --background: oklch(0.972 0.016 85);
-  --foreground: oklch(0.32 0.042 55);
-  --card: oklch(0.99 0.01 90);
-  --card-foreground: oklch(0.32 0.042 55);
-  --popover: oklch(0.99 0.01 90);
-  --popover-foreground: oklch(0.32 0.042 55);
-  --primary: oklch(0.6 0.105 80);
-  --primary-foreground: oklch(0.985 0.01 90);
-  --secondary: oklch(0.38 0.08 145);
+  --background: oklch(0.975 0.014 90);
+  --foreground: oklch(0.3 0.04 55);
+  --card: oklch(0.995 0.006 95);
+  --card-foreground: oklch(0.3 0.04 55);
+  --primary: oklch(0.72 0.1 88);
+  --primary-foreground: oklch(0.28 0.04 55);
+  --secondary: oklch(0.32 0.05 55);
   --secondary-foreground: oklch(0.985 0.01 90);
-  --muted: oklch(0.94 0.02 85);
-  --muted-foreground: oklch(0.5 0.035 60);
-  --accent: oklch(0.85 0.08 85);
-  --accent-foreground: oklch(0.32 0.042 55);
-  --destructive: oklch(0.55 0.22 25);
-  --destructive-foreground: oklch(0.985 0.01 90);
-  --border: oklch(0.89 0.025 85);
-  --input: oklch(0.89 0.025 85);
-  --ring: oklch(0.6 0.105 80);
-  --chart-1: oklch(0.6 0.105 80);
-  --chart-2: oklch(0.62 0.12 130);
-  --chart-3: oklch(0.72 0.13 60);
-  --chart-4: oklch(0.66 0.14 20);
-  --chart-5: oklch(0.32 0.042 55);
+  --muted: oklch(0.945 0.018 90);
+  --muted-foreground: oklch(0.48 0.03 60);
+  --accent: oklch(0.9 0.06 90);
+  --accent-foreground: oklch(0.3 0.04 55);
+  --border: oklch(0.9 0.025 90);
+  --input: oklch(0.9 0.025 90);
+  --ring: oklch(0.68 0.1 88);
   --radius: 1rem;
-
-  /* Brand aliases (used across pages) */
-  --gold: oklch(0.6 0.105 80);
-  --gold-deep: oklch(0.5 0.1 75);
-  --leaf: oklch(0.38 0.08 145);
-  --cocoa: oklch(0.3 0.045 55);
-  --cream: oklch(0.972 0.016 85);
-  --cream-deep: oklch(0.945 0.022 85);
-
-  /* Back-compat tokens for inner pages */
-  --sun: oklch(0.945 0.022 85);
-  --berry: oklch(0.6 0.105 80);
-  --pistachio: oklch(0.62 0.12 130);
-  --mango: oklch(0.78 0.13 75);
+  /* Light gold */
+  --gold: oklch(0.78 0.1 88);
+  --gold-deep: oklch(0.62 0.11 82);
+  /* Kept for legacy class names — warm cocoa, not green */
+  --leaf: oklch(0.32 0.045 55);
+  --cocoa: oklch(0.28 0.04 55);
+  --cream: oklch(0.975 0.014 90);
+  --cream-deep: oklch(0.95 0.02 90);
 }
 
 @theme inline {
@@ -52,8 +36,6 @@
   --color-foreground: var(--foreground);
   --color-card: var(--card);
   --color-card-foreground: var(--card-foreground);
-  --color-popover: var(--popover);
-  --color-popover-foreground: var(--popover-foreground);
   --color-primary: var(--primary);
   --color-primary-foreground: var(--primary-foreground);
   --color-secondary: var(--secondary);
@@ -62,26 +44,15 @@
   --color-muted-foreground: var(--muted-foreground);
   --color-accent: var(--accent);
   --color-accent-foreground: var(--accent-foreground);
-  --color-destructive: var(--destructive);
-  --color-destructive-foreground: var(--destructive-foreground);
   --color-border: var(--border);
   --color-input: var(--input);
   --color-ring: var(--ring);
-  --color-chart-1: var(--chart-1);
-  --color-chart-2: var(--chart-2);
-  --color-chart-3: var(--chart-3);
-  --color-chart-4: var(--chart-4);
-  --color-chart-5: var(--chart-5);
   --color-gold: var(--gold);
   --color-gold-deep: var(--gold-deep);
   --color-leaf: var(--leaf);
   --color-cocoa: var(--cocoa);
   --color-cream: var(--cream);
   --color-cream-deep: var(--cream-deep);
-  --color-sun: var(--sun);
-  --color-berry: var(--berry);
-  --color-pistachio: var(--pistachio);
-  --color-mango: var(--mango);
   --radius-sm: calc(var(--radius) - 4px);
   --radius-md: calc(var(--radius) - 2px);
   --radius-lg: var(--radius);
@@ -92,8 +63,28 @@
   * {
     @apply border-border outline-ring/50;
   }
+  html {
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+  }
   body {
     @apply bg-background text-foreground antialiased;
+    text-rendering: optimizeLegibility;
+  }
+  ::selection {
+    background: color-mix(in oklab, var(--gold) 35%, white);
+    color: var(--cocoa);
+  }
+  a:focus-visible,
+  button:focus-visible,
+  input:focus-visible,
+  select:focus-visible,
+  textarea:focus-visible {
+    outline: 2px solid color-mix(in oklab, var(--gold) 70%, transparent);
+    outline-offset: 2px;
+  }
+  #flavours {
+    scroll-margin-top: 5.5rem;
   }
 }
 
@@ -127,24 +118,174 @@
     animation-delay: 0.12s;
   }
 
-  .reveal-delay-2 {
-    animation-delay: 0.24s;
-  }
-
-  .reveal-delay-3 {
-    animation-delay: 0.38s;
-  }
-
-  .hero-kenburns {
-    animation: kenburns 18s ease-in-out infinite alternate;
-  }
-
   .stagger-item {
     animation: reveal-up 0.45s ease-out both;
   }
 
   .float-slow {
-    animation: float 6s ease-in-out infinite;
+    animation: float 6.5s ease-in-out infinite;
+  }
+
+  .float-delay {
+    animation-delay: 1.4s;
+  }
+
+  .cream-glow {
+    background:
+      radial-gradient(ellipse 50% 40% at 75% 35%, rgba(255, 236, 200, 0.55), transparent 70%),
+      radial-gradient(ellipse 40% 35% at 15% 70%, rgba(230, 200, 160, 0.18), transparent 65%),
+      radial-gradient(ellipse 60% 50% at 50% 100%, rgba(255, 255, 255, 0.5), transparent 60%);
+  }
+
+  .page-atmosphere {
+    background:
+      radial-gradient(ellipse 70% 45% at 50% -10%, rgba(212, 175, 55, 0.16), transparent 55%),
+      radial-gradient(ellipse 40% 30% at 100% 20%, rgba(255, 255, 255, 0.55), transparent 50%),
+      linear-gradient(180deg, var(--cream) 0%, var(--cream-deep) 100%);
+  }
+
+  .surface-panel {
+    background:
+      linear-gradient(165deg, rgba(255, 255, 255, 0.95) 0%, rgba(255, 250, 242, 0.9) 100%);
+    box-shadow:
+      0 1px 0 rgba(255, 255, 255, 0.75) inset,
+      0 18px 40px -24px rgba(60, 35, 15, 0.2);
+  }
+
+  .value-card {
+    background:
+      linear-gradient(165deg, rgba(255, 255, 255, 0.97) 0%, rgba(255, 250, 242, 0.94) 100%);
+    box-shadow:
+      0 1px 0 rgba(255, 255, 255, 0.85) inset,
+      0 14px 32px -20px rgba(60, 35, 15, 0.14);
+    transition: transform 0.35s ease, box-shadow 0.35s ease, border-color 0.35s ease;
+  }
+
+  .value-card:hover {
+    transform: translateY(-4px);
+    border-color: color-mix(in oklab, var(--gold) 55%, transparent);
+    box-shadow:
+      0 1px 0 rgba(255, 255, 255, 0.9) inset,
+      0 22px 40px -18px rgba(180, 140, 50, 0.22);
+  }
+
+  .eyebrow {
+    font-size: 0.65rem;
+    font-weight: 700;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    color: var(--gold-deep);
+  }
+
+  .btn-primary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    border-radius: 9999px;
+    background: linear-gradient(160deg, var(--gold) 0%, var(--gold-deep) 100%);
+    padding: 0.9rem 1.75rem;
+    font-size: 0.8125rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--cocoa);
+    box-shadow:
+      0 1px 0 rgba(255, 255, 255, 0.35) inset,
+      0 14px 32px -12px rgba(160, 120, 40, 0.45);
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+  }
+
+  .btn-primary:hover {
+    transform: translateY(-1px);
+    box-shadow:
+      0 1px 0 rgba(255, 255, 255, 0.4) inset,
+      0 18px 36px -12px rgba(160, 120, 40, 0.5);
+  }
+
+  .btn-primary:active {
+    transform: scale(0.98);
+  }
+
+  .btn-secondary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    border-radius: 9999px;
+    border: 1px solid color-mix(in oklab, var(--gold) 40%, transparent);
+    background: color-mix(in oklab, var(--card) 85%, transparent);
+    padding: 0.9rem 1.75rem;
+    font-size: 0.8125rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--cocoa);
+    backdrop-filter: blur(8px);
+    transition: border-color 0.25s ease, color 0.25s ease, background 0.25s ease;
+  }
+
+  .btn-secondary:hover {
+    border-color: var(--gold);
+    color: var(--gold-deep);
+    background: color-mix(in oklab, var(--gold) 12%, white);
+  }
+
+  .field-premium {
+    width: 100%;
+    border-radius: 0.9rem;
+    border: 1px solid color-mix(in oklab, var(--gold) 22%, var(--border));
+    background: color-mix(in oklab, white 70%, var(--cream));
+    padding: 0.85rem 1rem;
+    font-size: 1rem;
+    color: var(--foreground);
+    transition: border-color 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+  }
+
+  .field-premium::placeholder {
+    color: var(--muted-foreground);
+  }
+
+  .field-premium:focus {
+    outline: none;
+    border-color: color-mix(in oklab, var(--gold) 65%, transparent);
+    background: white;
+    box-shadow: 0 0 0 3px color-mix(in oklab, var(--gold) 18%, transparent);
+  }
+
+  .field-premium:disabled {
+    opacity: 0.6;
+  }
+
+  .snap-row {
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .snap-card {
+    scroll-snap-align: start;
+  }
+
+  .safe-px {
+    padding-left: max(1rem, env(safe-area-inset-left));
+    padding-right: max(1rem, env(safe-area-inset-right));
+  }
+
+  @media (min-width: 640px) {
+    .eyebrow {
+      font-size: 0.75rem;
+    }
+    .safe-px {
+      padding-left: max(1.5rem, env(safe-area-inset-left));
+      padding-right: max(1.5rem, env(safe-area-inset-right));
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .safe-px {
+      padding-left: max(2rem, env(safe-area-inset-left));
+      padding-right: max(2rem, env(safe-area-inset-right));
+    }
   }
 }
 
@@ -156,15 +297,6 @@
   to {
     opacity: 1;
     transform: translateY(0);
-  }
-}
-
-@keyframes kenburns {
-  from {
-    transform: scale(1);
-  }
-  to {
-    transform: scale(1.06);
   }
 }
 
@@ -181,11 +313,13 @@
 @media (prefers-reduced-motion: reduce) {
   .reveal,
   .reveal-delay-1,
-  .reveal-delay-2,
-  .reveal-delay-3,
-  .hero-kenburns,
   .stagger-item,
-  .float-slow {
+  .float-slow,
+  .float-delay {
     animation: none;
+  }
+  .btn-primary:hover,
+  .value-card:hover {
+    transform: none;
   }
 }

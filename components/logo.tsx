@@ -1,15 +1,25 @@
 import Link from "next/link"
+import Image from "next/image"
 import { cn } from "@/lib/utils"
 
-export function Logo({ className }: { className?: string }) {
+export function Logo({ className, priority = false }: { className?: string; priority?: boolean }) {
   return (
-    <Link href="/" className={cn("group inline-flex flex-col leading-none", className)}>
-      <span className="font-display text-3xl font-bold tracking-tight text-gold-deep transition-colors group-hover:text-gold sm:text-4xl">
-        Ice<span className="text-gold">Zea</span>
-      </span>
-      <span className="mt-1 text-[0.55rem] font-semibold uppercase tracking-[0.28em] text-gold">
-        Frozen Indulgence
-      </span>
+    <Link
+      href="/"
+      className={cn(
+        "group relative inline-flex max-w-[min(58vw,11.5rem)] shrink-0 items-center transition-opacity hover:opacity-90 sm:max-w-[14rem] md:max-w-none",
+        className,
+      )}
+      aria-label="IceZea home — Frozen Indulgence"
+    >
+      <Image
+        src="/products/icezea-logo.png"
+        alt="IceZea logo"
+        width={398}
+        height={123}
+        priority={priority}
+        className="h-8 w-auto max-w-full object-contain object-left sm:h-11 md:h-12"
+      />
     </Link>
   )
 }
