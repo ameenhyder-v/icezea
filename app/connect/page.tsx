@@ -1,15 +1,15 @@
 import type { Metadata } from "next"
 import { ConnectCard } from "@/components/connect-card"
 import { JsonLd, breadcrumbSchema, webPageSchema } from "@/components/json-ld"
-import { brand } from "@/lib/brand"
 import { absoluteUrl, createPageMetadata, siteConfig } from "@/lib/seo"
 
 const title = "IceZea | Connect With Us"
+const description = "Premium kulfi and popsicles made in the UAE. Melt Your Heart With Nostalgia."
 const socialImageAlt = "IceZea — Melt Your Heart With Nostalgia."
 
 const pageMetadata = createPageMetadata({
   title,
-  description: brand.description,
+  description,
   path: "/connect",
   keywords: [
     ...siteConfig.keywords,
@@ -46,7 +46,7 @@ export default function ConnectPage() {
         data={[
           webPageSchema({
             title,
-            description: brand.description,
+            description,
             path: "/connect",
           }),
           breadcrumbSchema([

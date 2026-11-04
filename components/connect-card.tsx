@@ -170,9 +170,6 @@ export function ConnectCard() {
           <p className="mx-auto mt-5 max-w-[16rem] font-display text-[1.85rem] italic leading-[1.15] text-balance text-[#6D0808] sm:max-w-[18rem] sm:text-[2.05rem]">
             {brand.tagline}
           </p>
-          <p className="mx-auto mt-4 max-w-[28rem] text-[0.95rem] leading-relaxed text-pretty text-[#2D0000]">
-            {brand.description}
-          </p>
           <p className="mt-4 text-sm text-[#4A5144]">
             {brand.locationLabel} <span aria-hidden="true">🇦🇪</span>
           </p>

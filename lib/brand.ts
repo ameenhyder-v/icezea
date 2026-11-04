@@ -17,8 +17,6 @@ const KNOWN_PATHS = new Set(["/", "/about", "/products", "/contact", "/connect"]
 export const brand = {
   name: "ICEZEA",
   tagline: "Melt Your Heart With Nostalgia.",
-  // description:
-  //   "Discover the taste of nostalgia. Explore our world of premium kulfi and popsicles, crafted to bring your favourite memories back to life.",
   category: "Premium Kulfi & Popsicles",
   locationLabel: "Made with love in the UAE",
   footerLine: "Premium Kulfi & Popsicles | Made in UAE",
