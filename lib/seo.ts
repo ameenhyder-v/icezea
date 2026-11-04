@@ -28,8 +28,7 @@ export const siteConfig = {
     countryName: "United Arab Emirates",
   },
   social: {
-    // Replace with real profiles when available
-    instagram: process.env.NEXT_PUBLIC_INSTAGRAM_URL || "",
+    instagram: process.env.NEXT_PUBLIC_INSTAGRAM_URL || "https://www.instagram.com/icezea.ae",
     facebook: process.env.NEXT_PUBLIC_FACEBOOK_URL || "",
   },
   ogImage: "/opengraph-image",
